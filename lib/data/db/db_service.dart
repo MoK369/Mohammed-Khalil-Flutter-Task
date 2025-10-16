@@ -92,12 +92,12 @@ class DBService {
   }
 
   // SELECT
-  Future<T?> selectData<T>({
+  Future<List<T>> select<T>({
     required String tableName,
     required List<String> columns,
-    required String where,
-    required List<String> whereArgs,
-    required T Function(Map<String, dynamic>) fromMap,
+    String? where,
+    List<String>? whereArgs,
+    required List<T> Function(List<Map<String, dynamic>> records) fromMap,
   }) async {
     var db = await dbInstance;
     List<Map> maps = await db.query(
@@ -107,9 +107,9 @@ class DBService {
       whereArgs: whereArgs,
     );
     if (maps.isNotEmpty) {
-      return fromMap(maps.first as Map<String, dynamic>);
+      return fromMap(maps as List<Map<String,dynamic>>);
     }
-    return null;
+    return [];
   }
 
   // INSERT
