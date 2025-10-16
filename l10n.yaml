@@ -1,5 +1,4 @@
 arb-dir: lib/ui/core/l10n/json_files
 template-arb-file: app_ar.arb
 output-dir: lib/ui/core/l10n
-synthetic-package: false
 output-localization-file: app_localizations.dart

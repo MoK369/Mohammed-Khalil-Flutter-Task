@@ -1,6 +1,8 @@
+import 'package:injectable/injectable.dart';
 import 'package:path/path.dart';
 import 'package:sqflite/sqflite.dart';
 
+@singleton
 class DBService {
   static Database? _db;
 
@@ -29,20 +31,20 @@ class DBService {
     Batch batch = db.batch();
     batch.execute("""
     CREATE TABLE IF NOT EXISTS categories (
-      id INTEGER PRIMARY KEY NOT NULL AUTOINCREMENT,
+      id INTEGER PRIMARY KEY AUTOINCREMENT,
       name TEXT NOT NULL);
     """);
     batch.execute("""
       CREATE TABLE IF NOT EXISTS subcategories (
-      id INTEGER PRIMARY KEY NOT NULL AUTOINCREMENT,
+      id INTEGER PRIMARY KEY AUTOINCREMENT,
       name TEXT NOT NULL,
       category_id INTEGER NOT NULL,
-      FOREIGN KEY (category_id) REFERENCES categories(id),
-      image_url TEXT NOT NULL);
+      image_url TEXT NOT NULL,
+      FOREIGN KEY (category_id) REFERENCES categories(id));
       """);
     batch.execute("""
      CREATE TABLE IF NOT EXISTS plans (
-      id INTEGER PRIMARY KEY NOT NULL AUTOINCREMENT,
+      id INTEGER PRIMARY KEY AUTOINCREMENT,
       title TEXT NOT NULL,
       price REAL NOT NULL,
       duration TEXT NOT NULL,
@@ -50,39 +52,41 @@ class DBService {
       """);
     batch.execute("""
      CREATE TABLE IF NOT EXISTS products(
-      id INTEGER PRIMARY KEY NOT NULL AUTOINCREMENT,
+      id INTEGER PRIMARY KEY AUTOINCREMENT,
       name TEXT NOT NULL,
       description TEXT NOT NULL,
       price REAL NOT NULL,
       discount REAL NOT NULL,
       total_sold INTEGER NOT NULL,
       category_id INTEGER NOT NULL,
-      FOREIGN KEY (category_id) REFERENCES categories(id),
       subcategory_id INTEGER NOT NULL,
-      FOREIGN KEY (subcategory_id) REFERENCES subcategories(id),
       image_url TEXT NOT NULL,
       plan_id INTEGER NOT NULL,
-      FOREIGN KEY (plan_id) REFERENCES plans(id));
+      FOREIGN KEY (plan_id) REFERENCES plans(id),
+      FOREIGN KEY (category_id) REFERENCES categories(id),
+      FOREIGN KEY (subcategory_id) REFERENCES subcategories(id)
+      );
       """);
     batch.execute("""
      CREATE TABLE IF NOT EXISTS Estates (
-      id INTEGER PRIMARY KEY NOT NULL AUTOINCREMENT,
+      id INTEGER PRIMARY KEY AUTOINCREMENT,
       title TEXT NOT NULL,
       description TEXT NOT NULL,
       price REAL NOT NULL,
       category_id INTEGER NOT NULL,
-      FOREIGN KEY (category_id) REFERENCES categories(id),
       subcategory_id INTEGER NOT NULL,
-      FOREIGN KEY (subcategory_id) REFERENCES subcategories(id),
       image_url TEXT NOT NULL,
       plan_id INTEGER NOT NULL,
-      FOREIGN KEY (plan_id) REFERENCES plans(id),
       location TEXT NOT NULL,
       status TEXT NOT NULL,
       type TEXT NOT NULL,
       rooms INTEGER NOT NULL,
       monthly_payments REAL NOT NULL,
-      payment_type TEXT NOT NULL);
+      payment_type TEXT NOT NULL,
+      FOREIGN KEY (category_id) REFERENCES categories(id),
+      FOREIGN KEY (subcategory_id) REFERENCES subcategories(id),
+      FOREIGN KEY (plan_id) REFERENCES plans(id)
+      );
       """);
     await batch.commit();
   }
@@ -109,7 +113,7 @@ class DBService {
   }
 
   // INSERT
-  Future<int> insert<T>({
+  Future<int> insertOne<T>({
     required String tableName,
     required T dataModel,
     required Map<String, dynamic> Function() toMap,
@@ -120,6 +124,33 @@ class DBService {
       toMap(),
       conflictAlgorithm: ConflictAlgorithm.replace,
     );
+  }
+
+  Future<int> insertMany<T>({
+    required String tableName,
+    required List<Map<String, dynamic>> values,
+  }) async {
+    var db = await dbInstance;
+    if (values.isEmpty) return 0;
+    final String columns = values[0].keys
+        .toList()
+        .toString()
+        .replaceFirst('[', '(')
+        .replaceFirst(']', ')');
+    print(columns);
+    StringBuffer valuesStringBuffer = StringBuffer();
+    for (int i = 0; i < values.length; i++) {
+      var listStr = values[i].values.toList().toString();
+      valuesStringBuffer.write(
+        "${listStr.replaceRange(0, 1, "(").replaceRange(listStr.length - 1, null, ")")}${i == values.length - 1 ? '' : ','}",
+      );
+    }
+    print(valuesStringBuffer.toString());
+    return db.rawInsert('''
+  INSERT INTO $tableName $columns
+  VALUES 
+    ${valuesStringBuffer.toString()}
+''');
   }
 
   // UPDATE
