@@ -137,7 +137,6 @@ class DBService {
         .toString()
         .replaceFirst('[', '(')
         .replaceFirst(']', ')');
-    print(columns);
     StringBuffer valuesStringBuffer = StringBuffer();
     for (int i = 0; i < values.length; i++) {
       var listStr = values[i].values.toList().toString();
@@ -145,7 +144,6 @@ class DBService {
         "${listStr.replaceRange(0, 1, "(").replaceRange(listStr.length - 1, null, ")")}${i == values.length - 1 ? '' : ','}",
       );
     }
-    print(valuesStringBuffer.toString());
     return db.rawInsert('''
   INSERT INTO $tableName $columns
   VALUES 

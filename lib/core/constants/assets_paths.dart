@@ -34,5 +34,11 @@ class AssetsPaths {
   static const String adsIcon = "assets/icons/ads_icon.png";
   static const String addBoxIcon = "assets/icons/add_box_icon.png";
   static const String chatsIcon = "assets/icons/chats_icon.png";
+  static const String addToCartIcon = "assets/icons/add_to_cart_icon.png";
+  static const String companyBadgeIcon = "assets/icons/company_badge_icon.png";
+  static const String tmgHoldingIcon = "assets/icons/tmg_holding_icon.png";
+  static const String percentageIcon = "assets/icons/percentage_icon.png";
+  static const String fireIcon = "assets/icons/fire_icon.png";
+
 
 }

@@ -33,7 +33,7 @@ class NavigationDestCustomIcon extends StatelessWidget {
         spacing: 2,
         children: [
           ImageIcon(AssetImage(iconPath), color: iconColor),
-          Text(label,textAlign: TextAlign.center,style: TextStyle(fontSize: 12),),
+          Text(label,textAlign: TextAlign.center,style: const TextStyle(fontSize: 12),),
         ],
       ),
     );

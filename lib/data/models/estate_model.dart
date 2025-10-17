@@ -1,4 +1,4 @@
-class Estate {
+class EstateModel {
   final int? id;
   final String title;
   final String description;
@@ -14,7 +14,7 @@ class Estate {
   final double monthlyPayments;
   final String paymentType;
 
-  Estate({
+  EstateModel({
     this.id,
     required this.title,
     required this.description,
@@ -52,8 +52,8 @@ class Estate {
   }
 
   // Create an Estate object from a Map
-  factory Estate.fromMap(Map<String, dynamic> map) {
-    return Estate(
+  factory EstateModel.fromMap(Map<String, dynamic> map) {
+    return EstateModel(
       id: map['id'],
       title: map['title'],
       description: map['description'],

@@ -1,10 +1,10 @@
-class Subcategory {
+class SubcategoryModel {
   final int? id;
   final String name;
   final int categoryId;
   final String imageUrl;
 
-  Subcategory({
+  SubcategoryModel({
     this.id,
     required this.name,
     required this.categoryId,
@@ -22,8 +22,8 @@ class Subcategory {
   }
 
   // Create a Subcategory object from a Map
-  factory Subcategory.fromMap(Map<String, dynamic> map) {
-    return Subcategory(
+  factory SubcategoryModel.fromMap(Map<String, dynamic> map) {
+    return SubcategoryModel(
       id: map['id'],
       name: map['name'],
       categoryId: map['category_id'],

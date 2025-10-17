@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:otex_flutter_task/core/l10n/app_localizations.dart';
 

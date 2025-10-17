@@ -1,4 +1,4 @@
-class Product {
+class ProductModel {
   final int? id;
   final String name;
   final String description;
@@ -10,7 +10,7 @@ class Product {
   final String imageUrl;
   final int planId;
 
-  Product({
+  ProductModel({
     this.id,
     required this.name,
     required this.description,
@@ -40,8 +40,8 @@ class Product {
   }
 
   // Create a Product object from a Map
-  factory Product.fromMap(Map<String, dynamic> map) {
-    return Product(
+  factory ProductModel.fromMap(Map<String, dynamic> map) {
+    return ProductModel(
       id: map['id'],
       name: map['name'],
       description: map['description'],

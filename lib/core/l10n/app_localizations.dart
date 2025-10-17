@@ -94,6 +94,12 @@ abstract class AppLocalizations {
   /// A list of this localizations delegate's supported locales.
   static const List<Locale> supportedLocales = <Locale>[Locale('ar')];
 
+  /// No description provided for @estates.
+  ///
+  /// In ar, this message translates to:
+  /// **'عقارات'**
+  String get estates;
+
   /// No description provided for @homePage.
   ///
   /// In ar, this message translates to:
@@ -153,6 +159,24 @@ abstract class AppLocalizations {
   /// In ar, this message translates to:
   /// **'لأى عرض تطلبه دلوقتى !'**
   String get offerRightNow;
+
+  /// No description provided for @sold.
+  ///
+  /// In ar, this message translates to:
+  /// **'تم بيع {quantity}'**
+  String sold(Object quantity);
+
+  /// No description provided for @price.
+  ///
+  /// In ar, this message translates to:
+  /// **'{price}جم'**
+  String price(Object price);
+
+  /// No description provided for @noItemsFound.
+  ///
+  /// In ar, this message translates to:
+  /// **'لم يتم العثور على عناصر'**
+  String get noItemsFound;
 }
 
 class _AppLocalizationsDelegate
