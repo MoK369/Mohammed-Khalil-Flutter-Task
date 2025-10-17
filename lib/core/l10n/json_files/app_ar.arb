@@ -12,5 +12,10 @@
   "offerRightNow": "لأى عرض تطلبه دلوقتى !",
   "sold": "تم بيع {quantity}",
   "price": "{price}جم",
-  "noItemsFound": "لم يتم العثور على عناصر"
+  "noItemsFound": "لم يتم العثور على عناصر",
+  "validity": "صلاحية",
+  "lifting": "رفع",
+  "keeping": "تثبيت",
+  "appearing": "ظهور",
+  "special": "مميز"
 }

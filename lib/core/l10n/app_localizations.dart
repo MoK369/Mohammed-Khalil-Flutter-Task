@@ -177,6 +177,36 @@ abstract class AppLocalizations {
   /// In ar, this message translates to:
   /// **'لم يتم العثور على عناصر'**
   String get noItemsFound;
+
+  /// No description provided for @validity.
+  ///
+  /// In ar, this message translates to:
+  /// **'صلاحية'**
+  String get validity;
+
+  /// No description provided for @lifting.
+  ///
+  /// In ar, this message translates to:
+  /// **'رفع'**
+  String get lifting;
+
+  /// No description provided for @keeping.
+  ///
+  /// In ar, this message translates to:
+  /// **'تثبيت'**
+  String get keeping;
+
+  /// No description provided for @appearing.
+  ///
+  /// In ar, this message translates to:
+  /// **'ظهور'**
+  String get appearing;
+
+  /// No description provided for @special.
+  ///
+  /// In ar, this message translates to:
+  /// **'مميز'**
+  String get special;
 }
 
 class _AppLocalizationsDelegate

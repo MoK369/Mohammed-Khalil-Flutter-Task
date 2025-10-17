@@ -1,4 +1,4 @@
-class AssetsPaths {
+abstract class AssetsPaths {
   // Estates
   static const String apartment = 'assets/images/estates/apartment.webp';
   static const String furnishedApartment =
@@ -39,6 +39,14 @@ class AssetsPaths {
   static const String tmgHoldingIcon = "assets/icons/tmg_holding_icon.png";
   static const String percentageIcon = "assets/icons/percentage_icon.png";
   static const String fireIcon = "assets/icons/fire_icon.png";
+  static const String favoriteIcon = "assets/icons/favorite_icon.png";
+  static const String favoriteBlueIcon = "assets/icons/favorite_blue_icon.png";
+  static const String globeIcon = "assets/icons/globe_icon.png";
+  static const String keepIcon = "assets/icons/keep_icon.png";
+  static const String rocketIcon = "assets/icons/rocket_icon.png";
+  static const String specialIcon = "assets/icons/special_icon.png";
+  static const String timeIcon = "assets/icons/time_icon.png";
+
 
 
 }

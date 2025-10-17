@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:otex_flutter_task/core/bases/base_stateful_widget_state.dart';
 import 'package:otex_flutter_task/core/bases/base_stateless_widget.dart';
 import 'package:otex_flutter_task/core/colors/app_colors.dart';
 import 'package:otex_flutter_task/core/constants/assets_paths.dart';
 
-class CustomProductCard extends BaseStatelessWidget {
+class CustomProductCard extends StatefulWidget {
   final String imagePath;
   final String title;
   final String price;
@@ -19,11 +20,17 @@ class CustomProductCard extends BaseStatelessWidget {
   });
 
   @override
-  Widget build(BuildContext context, db) {
+  State<CustomProductCard> createState() => _CustomProductCardState();
+}
+
+class _CustomProductCardState
+    extends BaseStatefulWidgetState<CustomProductCard> {
+  ValueNotifier<bool> isFavorite = ValueNotifier(false);
+
+  @override
+  Widget build(BuildContext context) {
     return Center(
       child: Container(
-        height: 300,
-        width: 200,
         decoration: BoxDecoration(
           gradient: LinearGradient(
             colors: [AppColors.black.withAlpha(12), AppColors.white],
@@ -40,7 +47,7 @@ class CustomProductCard extends BaseStatelessWidget {
               flex: 3,
               child: Padding(
                 padding: const EdgeInsets.symmetric(vertical: 6.0),
-                child: Image.asset(imagePath),
+                child: Image.asset(widget.imagePath),
               ),
             ),
             Expanded(
@@ -53,7 +60,7 @@ class CustomProductCard extends BaseStatelessWidget {
                       children: [
                         Expanded(
                           child: Text(
-                            title,
+                            widget.title,
                             overflow: TextOverflow.ellipsis,
                             maxLines: 1,
                           ),
@@ -64,24 +71,52 @@ class CustomProductCard extends BaseStatelessWidget {
                         ),
                       ],
                     ),
-                    RichText(
-                      text: TextSpan(
+                    Padding(
+                      padding: const EdgeInsets.symmetric(vertical: 6.0),
+                      child: Row(
                         children: [
-                          TextSpan(
-                            text: "$price/",
-                            style: db.theme.textTheme.titleMedium!.copyWith(
-                              color: AppColors.red,
-                            ),
-                          ),
-                          if (discount != null)
-                            TextSpan(
-                              text: discount,
-                              style: TextStyle(
-                                decoration: TextDecoration.lineThrough,
-                                fontSize: 12,
-                                color: AppColors.black.withAlpha(125),
+                          Expanded(
+                            child: RichText(
+                              text: TextSpan(
+                                children: [
+                                  TextSpan(
+                                    text: "${widget.price}/",
+                                    style: theme.textTheme.titleMedium!
+                                        .copyWith(color: AppColors.red),
+                                  ),
+                                  if (widget.discount != null)
+                                    TextSpan(
+                                      text: widget.discount,
+                                      style: TextStyle(
+                                        decoration: TextDecoration.lineThrough,
+                                        fontSize: 12,
+                                        color: AppColors.black.withAlpha(125),
+                                      ),
+                                    ),
+                                ],
                               ),
                             ),
+                          ),
+                          ValueListenableBuilder<bool>(
+                            valueListenable: isFavorite,
+                            builder: (context, value, child) {
+                              return InkWell(
+                                overlayColor: const WidgetStatePropertyAll(
+                                  WidgetStateColor.transparent,
+                                ),
+                                onTap: () {
+                                  isFavorite.value = !isFavorite.value;
+                                },
+                                child: Image.asset(
+                                  value
+                                      ? AssetsPaths.favoriteBlueIcon
+                                      : AssetsPaths.favoriteIcon,
+
+                                  width: 20,
+                                ),
+                              );
+                            },
+                          ),
                         ],
                       ),
                     ),
@@ -96,8 +131,8 @@ class CustomProductCard extends BaseStatelessWidget {
                         Padding(
                           padding: const EdgeInsets.only(top: 4.0),
                           child: Text(
-                            db.appLocalizations.sold(sold),
-                            style: db.theme.textTheme.titleSmall!.copyWith(
+                            appLocalizations.sold(widget.sold),
+                            style: theme.textTheme.titleSmall!.copyWith(
                               color: AppColors.black.withAlpha(125),
                             ),
                           ),

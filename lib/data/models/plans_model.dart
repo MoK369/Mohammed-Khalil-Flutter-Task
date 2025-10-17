@@ -1,13 +1,13 @@
 import 'dart:convert';
 
-class Plan {
+class PlanModel {
   final int? id;
   final String title;
   final double price;
   final String duration;
   final List<String> features;
 
-  Plan({
+  PlanModel({
     this.id,
     required this.title,
     required this.price,
@@ -27,8 +27,8 @@ class Plan {
   }
 
   // Create a Plan object from a Map from SQLite
-  factory Plan.fromMap(Map<String, dynamic> map) {
-    return Plan(
+  factory PlanModel.fromMap(Map<String, dynamic> map) {
+    return PlanModel(
       id: map['id'],
       title: map['title'],
       price: map['price'] is int ? (map['price'] as int).toDouble() : map['price'],

@@ -18,6 +18,8 @@ import '../../data/repos_implementations/categories_repo_imp/categories_repo_imp
     as _i414;
 import '../../data/repos_implementations/estates_repo_imp/estates_repo_imp.dart'
     as _i516;
+import '../../data/repos_implementations/plans_repo_imp/plans_repo_imp.dart'
+    as _i371;
 import '../../data/repos_implementations/products_repo_imp/products_repo_imp.dart'
     as _i568;
 import '../../data/repos_implementations/subcategory_repo_imp/subcategory_repo_imp.dart'
@@ -25,10 +27,13 @@ import '../../data/repos_implementations/subcategory_repo_imp/subcategory_repo_i
 import '../../domain/repos_contracts/categories_repo/categories_repo.dart'
     as _i98;
 import '../../domain/repos_contracts/estates_repo/estates_repo.dart' as _i536;
+import '../../domain/repos_contracts/plans_repo/plans_repo.dart' as _i466;
 import '../../domain/repos_contracts/products_repo/products_repo.dart' as _i315;
 import '../../domain/repos_contracts/subcategory_repo/subcategory_repo.dart'
     as _i1039;
 import '../../ui/home/manager/home_screen_view_model.dart' as _i782;
+import '../../ui/home/pages/account/manager/account_page_view_model.dart'
+    as _i716;
 import '../../ui/home/pages/main/manager/main_page_view_model.dart' as _i735;
 import '../app_localization_provider/app_localization_provider.dart' as _i503;
 import '../l10n/app_localizations.dart' as _i209;
@@ -58,6 +63,12 @@ extension GetItInjectableX on _i174.GetIt {
     );
     gh.factory<_i315.ProductsRepo>(
       () => _i568.ProductsRepoImp(gh<_i174.DBService>()),
+    );
+    gh.factory<_i466.PlansRepo>(
+      () => _i371.PlansRepoImp(gh<_i174.DBService>()),
+    );
+    gh.factory<_i716.AccountPageViewModel>(
+      () => _i716.AccountPageViewModel(gh<_i466.PlansRepo>()),
     );
     gh.factory<_i1039.SubcategoryRepo>(
       () => _i198.SubcategoryRepoImp(gh<_i174.DBService>()),
