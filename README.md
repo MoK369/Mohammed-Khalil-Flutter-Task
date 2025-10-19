@@ -17,13 +17,11 @@ This project is a Flutter-based mobile application developed as part of a techni
 
 | Package | Description |
 |--------|-------------|
-| [`flutter_localizations`](https://pub.devation support |
+| [`flutter_localizations`](https://pub.devation) support |
 | `intl` | Internationalization and localization utilities |
-| [`cupertino_icons`](https://pub.dev |
-| [`sqflite`](https://pub.dev/packages/sq
+| [`sqflite`](https://pub.dev/packages/sq) | Local data storage in Flutter applications |
 | `flutter_bloc` | State management using BLoC pattern |
 | `provider` | Lightweight state management |
-| `cached_network_image` | Efficient image caching |
 | `get_it` | Service locator for dependency injection |
 | `injectable` | Code generator for `get_it` |
 | [`path`](httpsmanipulation utilities |
