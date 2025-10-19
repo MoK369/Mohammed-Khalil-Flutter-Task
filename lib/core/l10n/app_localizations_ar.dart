@@ -80,7 +80,17 @@ class AppLocalizationsAr extends AppLocalizations {
   String get doubleNumberOfView => 'ضعف عدد\nالمشاهدات';
 
   @override
-  String planPrice(Object price) {
-    return '$priceج.م';
-  }
+  String get planPrice => 'ج.م';
+
+  @override
+  String get plansForYou => 'باقات مخصصة لك';
+
+  @override
+  String get contactUsForProperPlan => 'تواصل معنا لأختيار الباقة المناسبة لك';
+
+  @override
+  String get salesTeam => 'فريق المبيعات';
+
+  @override
+  String get next => 'التالى';
 }

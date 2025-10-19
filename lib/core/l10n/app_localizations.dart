@@ -229,8 +229,32 @@ abstract class AppLocalizations {
   /// No description provided for @planPrice.
   ///
   /// In ar, this message translates to:
-  /// **'{price}ج.م'**
-  String planPrice(Object price);
+  /// **'ج.م'**
+  String get planPrice;
+
+  /// No description provided for @plansForYou.
+  ///
+  /// In ar, this message translates to:
+  /// **'باقات مخصصة لك'**
+  String get plansForYou;
+
+  /// No description provided for @contactUsForProperPlan.
+  ///
+  /// In ar, this message translates to:
+  /// **'تواصل معنا لأختيار الباقة المناسبة لك'**
+  String get contactUsForProperPlan;
+
+  /// No description provided for @salesTeam.
+  ///
+  /// In ar, this message translates to:
+  /// **'فريق المبيعات'**
+  String get salesTeam;
+
+  /// No description provided for @next.
+  ///
+  /// In ar, this message translates to:
+  /// **'التالى'**
+  String get next;
 }
 
 class _AppLocalizationsDelegate

@@ -48,6 +48,7 @@ class DBService {
       title TEXT NOT NULL,
       price REAL NOT NULL,
       view_number INTEGER,
+      ribbon_title TEXT,
       features TEXT NOT NULL);
       """);
     batch.execute("""

@@ -32,9 +32,8 @@ import '../../domain/repos_contracts/products_repo/products_repo.dart' as _i315;
 import '../../domain/repos_contracts/subcategory_repo/subcategory_repo.dart'
     as _i1039;
 import '../../ui/home/manager/home_screen_view_model.dart' as _i782;
-import '../../ui/home/pages/account/manager/account_page_view_model.dart'
-    as _i716;
 import '../../ui/home/pages/main/manager/main_page_view_model.dart' as _i735;
+import '../../ui/plans/manager/plans_screen_view_model.dart' as _i162;
 import '../app_localization_provider/app_localization_provider.dart' as _i503;
 import '../l10n/app_localizations.dart' as _i209;
 
@@ -67,8 +66,8 @@ extension GetItInjectableX on _i174.GetIt {
     gh.factory<_i466.PlansRepo>(
       () => _i371.PlansRepoImp(gh<_i174.DBService>()),
     );
-    gh.factory<_i716.AccountPageViewModel>(
-      () => _i716.AccountPageViewModel(gh<_i466.PlansRepo>()),
+    gh.factory<_i162.PlansScreenViewModel>(
+      () => _i162.PlansScreenViewModel(gh<_i466.PlansRepo>()),
     );
     gh.factory<_i1039.SubcategoryRepo>(
       () => _i198.SubcategoryRepoImp(gh<_i174.DBService>()),

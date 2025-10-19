@@ -29,24 +29,24 @@ abstract class AssetsPaths {
   static const String watchSubcategory =
       'assets/images/subcategories/watch.webp';
 
-  static const String accountIcon = "assets/icons/account_icon.png";
-  static const String homeIcon = "assets/icons/home_icon.png";
-  static const String adsIcon = "assets/icons/ads_icon.png";
-  static const String addBoxIcon = "assets/icons/add_box_icon.png";
-  static const String chatsIcon = "assets/icons/chats_icon.png";
-  static const String addToCartIcon = "assets/icons/add_to_cart_icon.png";
-  static const String companyBadgeIcon = "assets/icons/company_badge_icon.png";
-  static const String tmgHoldingIcon = "assets/icons/tmg_holding_icon.png";
-  static const String percentageIcon = "assets/icons/percentage_icon.png";
-  static const String fireIcon = "assets/icons/fire_icon.png";
-  static const String favoriteIcon = "assets/icons/favorite_icon.png";
-  static const String favoriteBlueIcon = "assets/icons/favorite_blue_icon.png";
-  static const String globeIcon = "assets/icons/globe_icon.png";
-  static const String keepIcon = "assets/icons/keep_icon.png";
-  static const String rocketIcon = "assets/icons/rocket_icon.png";
-  static const String specialIcon = "assets/icons/special_icon.png";
-  static const String timeIcon = "assets/icons/time_icon.png";
-  static const String helpOutlineIcon = "assets/icons/help_outline_icon.png";
+  static const String accountIcon = "assets/icons/account_icon.webp";
+  static const String homeIcon = "assets/icons/home_icon.webp";
+  static const String adsIcon = "assets/icons/ads_icon.webp";
+  static const String addBoxIcon = "assets/icons/add_box_icon.webp";
+  static const String chatsIcon = "assets/icons/chats_icon.webp";
+  static const String addToCartIcon = "assets/icons/add_to_cart_icon.webp";
+  static const String companyBadgeIcon = "assets/icons/company_badge_icon.webp";
+  static const String tmgHoldingIcon = "assets/icons/tmg_holding_icon.webp";
+  static const String percentageIcon = "assets/icons/percentage_icon.webp";
+  static const String fireIcon = "assets/icons/fire_icon.webp";
+  static const String favoriteIcon = "assets/icons/favorite_icon.webp";
+  static const String favoriteBlueIcon = "assets/icons/favorite_blue_icon.webp";
+  static const String globeIcon = "assets/icons/globe_icon.webp";
+  static const String keepIcon = "assets/icons/keep_icon.webp";
+  static const String rocketIcon = "assets/icons/rocket_icon.webp";
+  static const String specialIcon = "assets/icons/special_icon.webp";
+  static const String timeIcon = "assets/icons/time_icon.webp";
+  static const String helpOutlineIcon = "assets/icons/help_outline_icon.webp";
 
 
 

@@ -5,6 +5,7 @@ class PlanModel {
   final String title;
   final double price;
   final int? viewNumber;
+  final String? ribbonTitle;
   final List<String> features;
 
   PlanModel({
@@ -12,6 +13,7 @@ class PlanModel {
     required this.title,
     required this.price,
     required this.viewNumber,
+    required this.ribbonTitle,
     required this.features,
   });
 
@@ -22,6 +24,7 @@ class PlanModel {
       'title': title,
       'price': price,
       'view_number': viewNumber,
+      'ribbon_title': ribbonTitle,
       'features': jsonEncode(features), // Convert List<String> to JSON string
     };
   }
@@ -31,9 +34,14 @@ class PlanModel {
     return PlanModel(
       id: map['id'],
       title: map['title'],
-      price: map['price'] is int ? (map['price'] as int).toDouble() : map['price'],
+      price: map['price'] is int
+          ? (map['price'] as int).toDouble()
+          : map['price'],
       viewNumber: map['view_number'],
-      features: List<String>.from(jsonDecode(map['features'])), // Convert JSON string to List<String>
+      ribbonTitle: map['ribbon_title'],
+      features: List<String>.from(
+        jsonDecode(map['features']),
+      ), // Convert JSON string to List<String>
     );
   }
 }

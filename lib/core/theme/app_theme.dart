@@ -35,15 +35,20 @@ abstract class AppTheme {
       ),
       titleSmall: GoogleFonts.tajawal(
         fontSize: 12,
-        fontWeight: FontWeight.w600,
+        fontWeight: FontWeight.w400,
       ),
     ),
     filledButtonTheme: FilledButtonThemeData(
       style: FilledButton.styleFrom(
+        textStyle:  GoogleFonts.tajawal(
+          fontSize: 15,
+          color: AppColors.white,
+          fontWeight: FontWeight.bold,
+        ),
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadiusGeometry.circular(32),
         ),
-        padding: const EdgeInsets.symmetric(vertical: 13, horizontal: 20),
+        padding: const EdgeInsets.symmetric(vertical: 14, horizontal: 20),
       ),
     ),
     elevatedButtonTheme: ElevatedButtonThemeData(
@@ -100,6 +105,9 @@ abstract class AppTheme {
         borderRadius: BorderRadiusGeometry.circular(8),
       ),
     ),
-    checkboxTheme: CheckboxThemeData()
+    checkboxTheme: const CheckboxThemeData(
+      materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
+      side: BorderSide(width: 2.2),
+    ),
   );
 }

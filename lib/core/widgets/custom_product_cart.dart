@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:otex_flutter_task/core/bases/base_stateful_widget_state.dart';
-import 'package:otex_flutter_task/core/bases/base_stateless_widget.dart';
 import 'package:otex_flutter_task/core/colors/app_colors.dart';
 import 'package:otex_flutter_task/core/constants/assets_paths.dart';
 

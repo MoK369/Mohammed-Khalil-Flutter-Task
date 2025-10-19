@@ -7,13 +7,13 @@ import 'package:otex_flutter_task/core/di/di.dart';
 import 'package:otex_flutter_task/core/l10n/app_localizations.dart';
 import 'package:otex_flutter_task/data/models/plans_model.dart';
 import 'package:otex_flutter_task/domain/repos_contracts/plans_repo/plans_repo.dart';
-import 'package:otex_flutter_task/ui/home/pages/account/manager/account_page_state.dart';
+import 'package:otex_flutter_task/ui/plans/manager/plans_screen_state.dart';
 
 @injectable
-class AccountPageViewModel extends Cubit<AccountPageState> {
+class PlansScreenViewModel extends Cubit<PlansScreenState> {
   final PlansRepo _plansRepo;
 
-  AccountPageViewModel(this._plansRepo) : super(const AccountPageState());
+  PlansScreenViewModel(this._plansRepo) : super(const PlansScreenState());
 
   void doIntent(AccountPageIntent intent) {
     switch (intent) {
