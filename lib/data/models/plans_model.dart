@@ -4,14 +4,14 @@ class PlanModel {
   final int? id;
   final String title;
   final double price;
-  final String duration;
+  final int? viewNumber;
   final List<String> features;
 
   PlanModel({
     this.id,
     required this.title,
     required this.price,
-    required this.duration,
+    required this.viewNumber,
     required this.features,
   });
 
@@ -21,7 +21,7 @@ class PlanModel {
       'id': id,
       'title': title,
       'price': price,
-      'duration': duration,
+      'view_number': viewNumber,
       'features': jsonEncode(features), // Convert List<String> to JSON string
     };
   }
@@ -32,7 +32,7 @@ class PlanModel {
       id: map['id'],
       title: map['title'],
       price: map['price'] is int ? (map['price'] as int).toDouble() : map['price'],
-      duration: map['duration'],
+      viewNumber: map['view_number'],
       features: List<String>.from(jsonDecode(map['features'])), // Convert JSON string to List<String>
     );
   }

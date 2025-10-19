@@ -17,5 +17,12 @@
   "lifting": "رفع",
   "keeping": "تثبيت",
   "appearing": "ظهور",
-  "special": "مميز"
+  "special": "مميز",
+  "chooseProperPlan": "أختر الباقات اللى تناسبك",
+  "chooseFromSpecialBottomPlans": "أختار من باقات التمييز بل أسفل اللى تناسب أحتياجاتك",
+  "doubleNumberOfView": "ضعف عدد\nالمشاهدات",
+  "planPrice": "ج.م",
+  "plansForYou": "باقات مخصصة لك",
+  "contactUsForProperPlan": "تواصل معنا لأختيار الباقة المناسبة لك",
+  "salesTeam": "فريق المبيعات"
 }

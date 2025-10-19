@@ -46,6 +46,7 @@ abstract class AssetsPaths {
   static const String rocketIcon = "assets/icons/rocket_icon.png";
   static const String specialIcon = "assets/icons/special_icon.png";
   static const String timeIcon = "assets/icons/time_icon.png";
+  static const String helpOutlineIcon = "assets/icons/help_outline_icon.png";
 
 
 

@@ -14,7 +14,7 @@ abstract class DatabaseConstants {
     'id',
     'title',
     'price',
-    'duration',
+    'view_number',
     'features',
   ];
   static const String productsTable = "products";

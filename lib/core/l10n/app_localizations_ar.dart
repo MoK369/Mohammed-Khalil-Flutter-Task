@@ -68,4 +68,19 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get special => 'مميز';
+
+  @override
+  String get chooseProperPlan => 'أختر الباقات اللى تناسبك';
+
+  @override
+  String get chooseFromSpecialBottomPlans =>
+      'أختار من باقات التمييز بل أسفل اللى تناسب أحتياجاتك';
+
+  @override
+  String get doubleNumberOfView => 'ضعف عدد\nالمشاهدات';
+
+  @override
+  String planPrice(Object price) {
+    return '$priceج.م';
+  }
 }

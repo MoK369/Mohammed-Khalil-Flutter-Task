@@ -47,7 +47,7 @@ class DBService {
       id INTEGER PRIMARY KEY AUTOINCREMENT,
       title TEXT NOT NULL,
       price REAL NOT NULL,
-      duration TEXT NOT NULL,
+      view_number INTEGER,
       features TEXT NOT NULL);
       """);
     batch.execute("""

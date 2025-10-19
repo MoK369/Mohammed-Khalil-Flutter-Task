@@ -207,6 +207,30 @@ abstract class AppLocalizations {
   /// In ar, this message translates to:
   /// **'مميز'**
   String get special;
+
+  /// No description provided for @chooseProperPlan.
+  ///
+  /// In ar, this message translates to:
+  /// **'أختر الباقات اللى تناسبك'**
+  String get chooseProperPlan;
+
+  /// No description provided for @chooseFromSpecialBottomPlans.
+  ///
+  /// In ar, this message translates to:
+  /// **'أختار من باقات التمييز بل أسفل اللى تناسب أحتياجاتك'**
+  String get chooseFromSpecialBottomPlans;
+
+  /// No description provided for @doubleNumberOfView.
+  ///
+  /// In ar, this message translates to:
+  /// **'ضعف عدد\nالمشاهدات'**
+  String get doubleNumberOfView;
+
+  /// No description provided for @planPrice.
+  ///
+  /// In ar, this message translates to:
+  /// **'{price}ج.م'**
+  String planPrice(Object price);
 }
 
 class _AppLocalizationsDelegate
