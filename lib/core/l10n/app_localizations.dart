@@ -1,0 +1,464 @@
+import 'dart:async';
+
+import 'package:flutter/foundation.dart';
+import 'package:flutter/widgets.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:intl/intl.dart' as intl;
+
+import 'app_localizations_ar.dart';
+
+// ignore_for_file: type=lint
+
+/// Callers can lookup localized strings with an instance of AppLocalizations
+/// returned by `AppLocalizations.of(context)`.
+///
+/// Applications need to include `AppLocalizations.delegate()` in their app's
+/// `localizationDelegates` list, and the locales they support in the app's
+/// `supportedLocales` list. For example:
+///
+/// ```dart
+/// import 'l10n/app_localizations.dart';
+///
+/// return MaterialApp(
+///   localizationsDelegates: AppLocalizations.localizationsDelegates,
+///   supportedLocales: AppLocalizations.supportedLocales,
+///   home: MyApplicationHome(),
+/// );
+/// ```
+///
+/// ## Update pubspec.yaml
+///
+/// Please make sure to update your pubspec.yaml to include the following
+/// packages:
+///
+/// ```yaml
+/// dependencies:
+///   # Internationalization support.
+///   flutter_localizations:
+///     sdk: flutter
+///   intl: any # Use the pinned version from flutter_localizations
+///
+///   # Rest of dependencies
+/// ```
+///
+/// ## iOS Applications
+///
+/// iOS applications define key application metadata, including supported
+/// locales, in an Info.plist file that is built into the application bundle.
+/// To configure the locales supported by your app, you’ll need to edit this
+/// file.
+///
+/// First, open your project’s ios/Runner.xcworkspace Xcode workspace file.
+/// Then, in the Project Navigator, open the Info.plist file under the Runner
+/// project’s Runner folder.
+///
+/// Next, select the Information Property List item, select Add Item from the
+/// Editor menu, then select Localizations from the pop-up menu.
+///
+/// Select and expand the newly-created Localizations item then, for each
+/// locale your application supports, add a new item and select the locale
+/// you wish to add from the pop-up menu in the Value field. This list should
+/// be consistent with the languages listed in the AppLocalizations.supportedLocales
+/// property.
+abstract class AppLocalizations {
+  AppLocalizations(String locale)
+    : localeName = intl.Intl.canonicalizedLocale(locale.toString());
+
+  final String localeName;
+
+  static AppLocalizations? of(BuildContext context) {
+    return Localizations.of<AppLocalizations>(context, AppLocalizations);
+  }
+
+  static const LocalizationsDelegate<AppLocalizations> delegate =
+      _AppLocalizationsDelegate();
+
+  /// A list of this localizations delegate along with the default localizations
+  /// delegates.
+  ///
+  /// Returns a list of localizations delegates containing this delegate along with
+  /// GlobalMaterialLocalizations.delegate, GlobalCupertinoLocalizations.delegate,
+  /// and GlobalWidgetsLocalizations.delegate.
+  ///
+  /// Additional delegates can be added by appending to this list in
+  /// MaterialApp. This list does not have to be used at all if a custom list
+  /// of delegates is preferred or required.
+  static const List<LocalizationsDelegate<dynamic>> localizationsDelegates =
+      <LocalizationsDelegate<dynamic>>[
+        delegate,
+        GlobalMaterialLocalizations.delegate,
+        GlobalCupertinoLocalizations.delegate,
+        GlobalWidgetsLocalizations.delegate,
+      ];
+
+  /// A list of this localizations delegate's supported locales.
+  static const List<Locale> supportedLocales = <Locale>[Locale('ar')];
+
+  /// No description provided for @estates.
+  ///
+  /// In ar, this message translates to:
+  /// **'عقارات'**
+  String get estates;
+
+  /// No description provided for @villasForSale.
+  ///
+  /// In ar, this message translates to:
+  /// **'فلل للبيع'**
+  String get villasForSale;
+
+  /// No description provided for @homePage.
+  ///
+  /// In ar, this message translates to:
+  /// **'الرئيسية'**
+  String get homePage;
+
+  /// No description provided for @chatsPage.
+  ///
+  /// In ar, this message translates to:
+  /// **'محادثة'**
+  String get chatsPage;
+
+  /// No description provided for @addAdPage.
+  ///
+  /// In ar, this message translates to:
+  /// **'أضف أعلان'**
+  String get addAdPage;
+
+  /// No description provided for @myAdsPage.
+  ///
+  /// In ar, this message translates to:
+  /// **'أعلاناتى'**
+  String get myAdsPage;
+
+  /// No description provided for @accountPage.
+  ///
+  /// In ar, this message translates to:
+  /// **'حسابى'**
+  String get accountPage;
+
+  /// No description provided for @exploreOffers.
+  ///
+  /// In ar, this message translates to:
+  /// **'أستكشف العروض'**
+  String get exploreOffers;
+
+  /// No description provided for @all.
+  ///
+  /// In ar, this message translates to:
+  /// **'الكل'**
+  String get all;
+
+  /// No description provided for @allOffers.
+  ///
+  /// In ar, this message translates to:
+  /// **'كل العروض'**
+  String get allOffers;
+
+  /// No description provided for @freeShipping.
+  ///
+  /// In ar, this message translates to:
+  /// **'شحن مجانى'**
+  String get freeShipping;
+
+  /// No description provided for @offerRightNow.
+  ///
+  /// In ar, this message translates to:
+  /// **'لأى عرض تطلبه دلوقتى !'**
+  String get offerRightNow;
+
+  /// No description provided for @sold.
+  ///
+  /// In ar, this message translates to:
+  /// **'تم بيع {quantity}'**
+  String sold(Object quantity);
+
+  /// No description provided for @price.
+  ///
+  /// In ar, this message translates to:
+  /// **'{price}جم'**
+  String price(Object price);
+
+  /// No description provided for @noItemsFound.
+  ///
+  /// In ar, this message translates to:
+  /// **'لم يتم العثور على عناصر'**
+  String get noItemsFound;
+
+  /// No description provided for @validity.
+  ///
+  /// In ar, this message translates to:
+  /// **'صلاحية'**
+  String get validity;
+
+  /// No description provided for @lifting.
+  ///
+  /// In ar, this message translates to:
+  /// **'رفع'**
+  String get lifting;
+
+  /// No description provided for @keeping.
+  ///
+  /// In ar, this message translates to:
+  /// **'تثبيت'**
+  String get keeping;
+
+  /// No description provided for @appearing.
+  ///
+  /// In ar, this message translates to:
+  /// **'ظهور'**
+  String get appearing;
+
+  /// No description provided for @special.
+  ///
+  /// In ar, this message translates to:
+  /// **'مميز'**
+  String get special;
+
+  /// No description provided for @chooseProperPlan.
+  ///
+  /// In ar, this message translates to:
+  /// **'أختر الباقات اللى تناسبك'**
+  String get chooseProperPlan;
+
+  /// No description provided for @chooseFromSpecialBottomPlans.
+  ///
+  /// In ar, this message translates to:
+  /// **'أختار من باقات التمييز بل أسفل اللى تناسب أحتياجاتك'**
+  String get chooseFromSpecialBottomPlans;
+
+  /// No description provided for @doubleNumberOfView.
+  ///
+  /// In ar, this message translates to:
+  /// **'ضعف عدد\nالمشاهدات'**
+  String get doubleNumberOfView;
+
+  /// No description provided for @planPrice.
+  ///
+  /// In ar, this message translates to:
+  /// **'ج.م'**
+  String get planPrice;
+
+  /// No description provided for @plansForYou.
+  ///
+  /// In ar, this message translates to:
+  /// **'باقات مخصصة لك'**
+  String get plansForYou;
+
+  /// No description provided for @contactUsForProperPlan.
+  ///
+  /// In ar, this message translates to:
+  /// **'تواصل معنا لأختيار الباقة المناسبة لك'**
+  String get contactUsForProperPlan;
+
+  /// No description provided for @salesTeam.
+  ///
+  /// In ar, this message translates to:
+  /// **'فريق المبيعات'**
+  String get salesTeam;
+
+  /// No description provided for @next.
+  ///
+  /// In ar, this message translates to:
+  /// **'التالى'**
+  String get next;
+
+  /// No description provided for @filtering.
+  ///
+  /// In ar, this message translates to:
+  /// **'فلترة'**
+  String get filtering;
+
+  /// No description provided for @returnToDefault.
+  ///
+  /// In ar, this message translates to:
+  /// **'الرجوع للإفتراضي'**
+  String get returnToDefault;
+
+  /// No description provided for @category.
+  ///
+  /// In ar, this message translates to:
+  /// **'الفئة'**
+  String get category;
+
+  /// No description provided for @changing.
+  ///
+  /// In ar, this message translates to:
+  /// **'تغيير'**
+  String get changing;
+
+  /// No description provided for @location.
+  ///
+  /// In ar, this message translates to:
+  /// **'الموقع'**
+  String get location;
+
+  /// No description provided for @egypt.
+  ///
+  /// In ar, this message translates to:
+  /// **'مصر'**
+  String get egypt;
+
+  /// No description provided for @saudiArabia.
+  ///
+  /// In ar, this message translates to:
+  /// **'السعودية'**
+  String get saudiArabia;
+
+  /// No description provided for @emirates.
+  ///
+  /// In ar, this message translates to:
+  /// **'الإمارات'**
+  String get emirates;
+
+  /// No description provided for @monthlyPayments.
+  ///
+  /// In ar, this message translates to:
+  /// **'الأقساط الشهرية'**
+  String get monthlyPayments;
+
+  /// No description provided for @priceWord.
+  ///
+  /// In ar, this message translates to:
+  /// **'السعر'**
+  String get priceWord;
+
+  /// No description provided for @lowestPrice.
+  ///
+  /// In ar, this message translates to:
+  /// **'أقل سعر'**
+  String get lowestPrice;
+
+  /// No description provided for @highestPrice.
+  ///
+  /// In ar, this message translates to:
+  /// **'أقصى سعر'**
+  String get highestPrice;
+
+  /// No description provided for @roomsNumber.
+  ///
+  /// In ar, this message translates to:
+  /// **'عدد الغرف'**
+  String get roomsNumber;
+
+  /// No description provided for @fourRooms.
+  ///
+  /// In ar, this message translates to:
+  /// **'4 غرف'**
+  String get fourRooms;
+
+  /// No description provided for @fiveRoomsOrMore.
+  ///
+  /// In ar, this message translates to:
+  /// **'5 غرف+'**
+  String get fiveRoomsOrMore;
+
+  /// No description provided for @twoRooms.
+  ///
+  /// In ar, this message translates to:
+  /// **'غرفتين'**
+  String get twoRooms;
+
+  /// No description provided for @treeRooms.
+  ///
+  /// In ar, this message translates to:
+  /// **'3 غرف'**
+  String get treeRooms;
+
+  /// No description provided for @paymentType.
+  ///
+  /// In ar, this message translates to:
+  /// **'طريقة الدفع'**
+  String get paymentType;
+
+  /// No description provided for @any.
+  ///
+  /// In ar, this message translates to:
+  /// **'أي'**
+  String get any;
+
+  /// No description provided for @installment.
+  ///
+  /// In ar, this message translates to:
+  /// **'تقسيط'**
+  String get installment;
+
+  /// No description provided for @cash.
+  ///
+  /// In ar, this message translates to:
+  /// **'كاش'**
+  String get cash;
+
+  /// No description provided for @estateStatus.
+  ///
+  /// In ar, this message translates to:
+  /// **'حالة العقار'**
+  String get estateStatus;
+
+  /// No description provided for @ready.
+  ///
+  /// In ar, this message translates to:
+  /// **'جاهز'**
+  String get ready;
+
+  /// No description provided for @underConstruction.
+  ///
+  /// In ar, this message translates to:
+  /// **'قيد الإنشاء'**
+  String get underConstruction;
+
+  /// No description provided for @estateType.
+  ///
+  /// In ar, this message translates to:
+  /// **'النوع'**
+  String get estateType;
+
+  /// No description provided for @townHouse.
+  ///
+  /// In ar, this message translates to:
+  /// **'توين هاوس'**
+  String get townHouse;
+
+  /// No description provided for @separateVilla.
+  ///
+  /// In ar, this message translates to:
+  /// **'فيلا منفصلة'**
+  String get separateVilla;
+
+  /// No description provided for @showLotsOfResults.
+  ///
+  /// In ar, this message translates to:
+  /// **'شاهد 10,000+ نتائج'**
+  String get showLotsOfResults;
+}
+
+class _AppLocalizationsDelegate
+    extends LocalizationsDelegate<AppLocalizations> {
+  const _AppLocalizationsDelegate();
+
+  @override
+  Future<AppLocalizations> load(Locale locale) {
+    return SynchronousFuture<AppLocalizations>(lookupAppLocalizations(locale));
+  }
+
+  @override
+  bool isSupported(Locale locale) =>
+      <String>['ar'].contains(locale.languageCode);
+
+  @override
+  bool shouldReload(_AppLocalizationsDelegate old) => false;
+}
+
+AppLocalizations lookupAppLocalizations(Locale locale) {
+  // Lookup logic when only language code is specified.
+  switch (locale.languageCode) {
+    case 'ar':
+      return AppLocalizationsAr();
+  }
+
+  throw FlutterError(
+    'AppLocalizations.delegate failed to load unsupported locale "$locale". This is likely '
+    'an issue with the localizations generation tool. Please file an issue '
+    'on GitHub with a reproducible sample app and the gen-l10n configuration '
+    'that was used.',
+  );
+}
