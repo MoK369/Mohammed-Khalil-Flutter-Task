@@ -9,6 +9,9 @@ class AppLocalizationsAr extends AppLocalizations {
   AppLocalizationsAr([String locale = 'ar']) : super(locale);
 
   @override
+  String get estates => 'عقارات';
+
+  @override
   String get homePage => 'الرئيسية';
 
   @override
@@ -37,4 +40,17 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get offerRightNow => 'لأى عرض تطلبه دلوقتى !';
+
+  @override
+  String sold(Object quantity) {
+    return 'تم بيع $quantity';
+  }
+
+  @override
+  String price(Object price) {
+    return '$priceجم';
+  }
+
+  @override
+  String get noItemsFound => 'لم يتم العثور على عناصر';
 }
