@@ -15,18 +15,20 @@ This project is a Flutter-based mobile application developed as part of a techni
 
 ## 🛠️ Tech Stack & Dependencies
 
+Below are the main packages used in this project, along with a brief description of their purpose:
+
 | Package | Description |
 |--------|-------------|
-| [`flutter_localizations`](https://pub.devation) support |
-| `intl` | Internationalization and localization utilities |
-| [`sqflite`](https://pub.dev/packages/sq) | Local data storage in Flutter applications |
-| `flutter_bloc` | State management using BLoC pattern |
-| `provider` | Lightweight state management |
-| `get_it` | Service locator for dependency injection |
-| `injectable` | Code generator for `get_it` |
-| [`path`](httpsmanipulation utilities |
-| [`google_fonts`](https://pub.dev/packages
-| [`equatable`](https://pub.dev/packages/equatablet objects |
+| `flutter_localizations` | Enables localization and internationalization support in Flutter apps. |
+| `intl` | Provides utilities for internationalization, such as date and number formatting. |
+| `sqflite` | SQLite plugin for Flutter, used for local data storage and querying. |
+| `flutter_bloc` | State management library based on the BLoC (Business Logic Component) pattern. |
+| `provider` | A simple and efficient dependency injection and state management solution. |
+| `get_it` | A service locator for dependency injection, helping manage app-wide instances. |
+| `injectable` | Code generator for `get_it` to simplify and automate dependency injection setup. |
+| `path` | Provides utilities for manipulating file system paths in a platform-independent way. |
+| `google_fonts` | Access to hundreds of free fonts from Google Fonts for custom typography. |
+| `equatable` | Simplifies equality comparisons between Dart objects, useful in state management. |
 
 ## 📂 Project Structure
 lib/
