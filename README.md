@@ -1,16 +1,67 @@
-# otex_flutter_task
+# Flutter Task – [Your Name]
 
-A new Flutter project.
+This project is a Flutter-based mobile application developed as part of a technical assessment. It demonstrates UI implementation based on provided designs, local data management using SQLite, and clean code architecture with state management.
 
-## Getting Started
+## 📱 Features
 
-This project is a starting point for a Flutter application.
+- Pixel-perfect UI implementation based on provided designs
+- Local data storage using SQLite
+- Filtering screen for real estate listings
+- State management using `flutter_bloc` and `provider`
+- Dependency injection with `get_it` and `injectable`
+- Localization support
+- Custom fonts and icons
+- Cached image loading for performance
 
-A few resources to get you started if this is your first Flutter project:
+## 🛠️ Tech Stack & Dependencies
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+| Package | Description |
+|--------|-------------|
+| [`flutter_localizations`](https://pub.devation support |
+| `intl` | Internationalization and localization utilities |
+| [`cupertino_icons`](https://pub.dev |
+| [`sqflite`](https://pub.dev/packages/sq
+| `flutter_bloc` | State management using BLoC pattern |
+| `provider` | Lightweight state management |
+| `cached_network_image` | Efficient image caching |
+| `get_it` | Service locator for dependency injection |
+| `injectable` | Code generator for `get_it` |
+| [`path`](httpsmanipulation utilities |
+| [`google_fonts`](https://pub.dev/packages
+| [`equatable`](https://pub.dev/packages/equatablet objects |
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## 📂 Project Structure
+lib/
+├── core/                   # Core utilities and shared resources
+│   ├── app_localization_provider/  # Localization setup and providers
+│   ├── bases/                      # Base classes (e.g., base widgets, base cubits)
+│   ├── colors/                     # App color definitions
+│   ├── constants/                  # Constant values used across the app
+│   ├── database_result/           # Result wrappers for DB operations
+│   ├── di/                         # Dependency injection setup
+│   ├── l10n/                       # Localization files
+│   ├── routing/                    # App routing and navigation
+│   ├── theme/                      # App-wide theming
+│   └── widgets/                    # Reusable UI components
+│
+├── data/                   # Data layer (implementation)
+│   ├── db/                         # SQLite database helpers and DAOs
+│   ├── dummy/                      # Dummy/mock data for testing
+│   ├── models/                     # Data models
+│   └── repos_implementations/     # Implementations of repositories
+│
+├── domain/                # Domain layer (business logic)
+│   ├── repos_contracts/           # Abstract repository contracts
+│   │   ├── categories_repo/
+│   │   ├── estates_repo/
+│   │   ├── plans_repo/
+│   │   ├── products_repo/
+│   │   └── subcategory_repo/
+│   └── base_repo.dart             # Base repository interface
+│
+├── ui/                    # Presentation layer
+│   ├── filter/                    # Filter screen UI and logic
+│   ├── home/                      # Home screen UI and logic
+│   └── plans/                     # Plans screen UI and logic
+│
+└── main.dart              # App entry point
