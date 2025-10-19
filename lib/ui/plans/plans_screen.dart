@@ -3,6 +3,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:otex_flutter_task/core/bases/base_stateful_widget_state.dart';
 import 'package:otex_flutter_task/core/colors/app_colors.dart';
 import 'package:otex_flutter_task/core/constants/enums.dart';
+import 'package:otex_flutter_task/core/widgets/error_state_widget.dart';
+import 'package:otex_flutter_task/core/widgets/loading_state_widget.dart';
 import 'package:otex_flutter_task/ui/plans/manager/plans_screen_state.dart';
 import 'package:otex_flutter_task/ui/plans/manager/plans_screen_view_model.dart';
 import 'package:otex_flutter_task/ui/plans/widget/custom_plan_card.dart';
@@ -54,7 +56,7 @@ class _PlansScreenState extends BaseStatefulWidgetState<PlansScreen> {
               switch (state.plansStatus) {
                 case StatusEnum.idle:
                 case StatusEnum.loading:
-                  return const Center(child: CircularProgressIndicator());
+                  return const LoadingStateWidget();
                 case StatusEnum.success:
                   final plans = state.plans ?? [];
                   return plans.isEmpty
@@ -174,10 +176,7 @@ class _PlansScreenState extends BaseStatefulWidgetState<PlansScreen> {
                           ],
                         );
                 case StatusEnum.error:
-                  return Text(
-                    state.plansError.toString(),
-                    style: theme.textTheme.titleLarge,
-                  );
+                  return ErrorStateWidget(error: state.plansError.toString());
               }
             },
           ),

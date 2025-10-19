@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:otex_flutter_task/core/bases/base_stateful_widget_state.dart';
 import 'package:otex_flutter_task/core/constants/enums.dart';
 import 'package:otex_flutter_task/core/widgets/custom_product_cart.dart';
+import 'package:otex_flutter_task/core/widgets/error_state_widget.dart';
 import 'package:otex_flutter_task/ui/filter/manager/filter_screen_view_model.dart';
 
 class ResultsPage extends StatefulWidget {
@@ -23,11 +24,8 @@ class _ResultsPageState extends BaseStatefulWidgetState<ResultsPage> {
   @override
   Widget build(BuildContext context) {
     if (filterScreenViewModel.state.filterStatus == StatusEnum.error) {
-      return Center(
-        child: Text(
-          filterScreenViewModel.state.filterError.toString(),
-          textAlign: TextAlign.center,
-        ),
+      return ErrorStateWidget(
+        error: filterScreenViewModel.state.filterError.toString(),
       );
     } else {
       var resultsList = filterScreenViewModel.state.estatesResult ?? [];
