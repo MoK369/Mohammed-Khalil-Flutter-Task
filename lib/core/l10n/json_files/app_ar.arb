@@ -1,5 +1,6 @@
 {
   "estates": "عقارات",
+  "villasForSale": "فلل للبيع",
   "homePage": "الرئيسية",
   "chatsPage": "محادثة",
   "addAdPage": "أضف أعلان",
@@ -25,5 +26,40 @@
   "plansForYou": "باقات مخصصة لك",
   "contactUsForProperPlan": "تواصل معنا لأختيار الباقة المناسبة لك",
   "salesTeam": "فريق المبيعات",
-  "next": "التالى"
+  "next": "التالى",
+  "filtering": "فلترة",
+  "returnToDefault": "الرجوع للإفتراضي",
+  "category": "الفئة",
+  "changing": "تغيير",
+  "location": "الموقع",
+
+  "egypt": "مصر",
+  "saudiArabia": "السعودية",
+  "emirates": "الإمارات",
+
+  "monthlyPayments": "الأقساط الشهرية",
+  "priceWord": "السعر",
+  "lowestPrice": "أقل سعر",
+  "highestPrice": "أقصى سعر",
+
+  "roomsNumber": "عدد الغرف",
+  "fourRooms": "4 غرف",
+  "fiveRoomsOrMore": "5 غرف+",
+  "twoRooms": "غرفتين",
+  "treeRooms": "3 غرف",
+
+  "paymentType": "طريقة الدفع",
+  "any": "أي",
+  "installment": "تقسيط",
+  "cash": "كاش",
+
+  "estateStatus": "حالة العقار",
+  "ready": "جاهز",
+  "underConstruction": "قيد الإنشاء",
+
+  "estateType": "النوع",
+  "townHouse": "توين هاوس",
+  "separateVilla": "فيلا منفصلة",
+
+  "showLotsOfResults": "شاهد 10,000+ نتائج"
 }

@@ -33,7 +33,6 @@ class _PlansScreenState extends BaseStatefulWidgetState<PlansScreen> {
           titleSpacing: 0,
           title: Text(
             appLocalizations.chooseProperPlan,
-            style: theme.textTheme.titleLarge!.copyWith(fontSize: 24),
           ),
           leading: IconButton(
             onPressed: () {

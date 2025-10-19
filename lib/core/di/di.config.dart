@@ -31,6 +31,7 @@ import '../../domain/repos_contracts/plans_repo/plans_repo.dart' as _i466;
 import '../../domain/repos_contracts/products_repo/products_repo.dart' as _i315;
 import '../../domain/repos_contracts/subcategory_repo/subcategory_repo.dart'
     as _i1039;
+import '../../ui/filter/manager/filter_screen_view_model.dart' as _i491;
 import '../../ui/home/manager/home_screen_view_model.dart' as _i782;
 import '../../ui/home/pages/main/manager/main_page_view_model.dart' as _i735;
 import '../../ui/plans/manager/plans_screen_view_model.dart' as _i162;
@@ -49,6 +50,9 @@ extension GetItInjectableX on _i174.GetIt {
     await gh.factoryAsync<_i209.AppLocalizations>(
       () => appLocalizationProvider.provide(),
       preResolve: true,
+    );
+    gh.factory<_i491.FilterScreenViewModel>(
+      () => _i491.FilterScreenViewModel(),
     );
     gh.singleton<_i174.DBService>(() => _i174.DBService());
     gh.factory<_i901.DummyDataProvider>(

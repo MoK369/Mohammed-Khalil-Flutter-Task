@@ -12,6 +12,9 @@ class AppLocalizationsAr extends AppLocalizations {
   String get estates => 'عقارات';
 
   @override
+  String get villasForSale => 'فلل للبيع';
+
+  @override
   String get homePage => 'الرئيسية';
 
   @override
@@ -93,4 +96,88 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get next => 'التالى';
+
+  @override
+  String get filtering => 'فلترة';
+
+  @override
+  String get returnToDefault => 'الرجوع للإفتراضي';
+
+  @override
+  String get category => 'الفئة';
+
+  @override
+  String get changing => 'تغيير';
+
+  @override
+  String get location => 'الموقع';
+
+  @override
+  String get egypt => 'مصر';
+
+  @override
+  String get saudiArabia => 'السعودية';
+
+  @override
+  String get emirates => 'الإمارات';
+
+  @override
+  String get monthlyPayments => 'الأقساط الشهرية';
+
+  @override
+  String get priceWord => 'السعر';
+
+  @override
+  String get lowestPrice => 'أقل سعر';
+
+  @override
+  String get highestPrice => 'أقصى سعر';
+
+  @override
+  String get roomsNumber => 'عدد الغرف';
+
+  @override
+  String get fourRooms => '4 غرف';
+
+  @override
+  String get fiveRoomsOrMore => '5 غرف+';
+
+  @override
+  String get twoRooms => 'غرفتين';
+
+  @override
+  String get treeRooms => '3 غرف';
+
+  @override
+  String get paymentType => 'طريقة الدفع';
+
+  @override
+  String get any => 'أي';
+
+  @override
+  String get installment => 'تقسيط';
+
+  @override
+  String get cash => 'كاش';
+
+  @override
+  String get estateStatus => 'حالة العقار';
+
+  @override
+  String get ready => 'جاهز';
+
+  @override
+  String get underConstruction => 'قيد الإنشاء';
+
+  @override
+  String get estateType => 'النوع';
+
+  @override
+  String get townHouse => 'توين هاوس';
+
+  @override
+  String get separateVilla => 'فيلا منفصلة';
+
+  @override
+  String get showLotsOfResults => 'شاهد 10,000+ نتائج';
 }
