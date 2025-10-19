@@ -31,8 +31,11 @@ Below are the main packages used in this project, along with a brief description
 | `equatable` | Simplifies equality comparisons between Dart objects, useful in state management. |
 
 ## 📂 Project Structure
+The project follows a clean architecture approach, organized into multiple layers for better scalability and maintainability:
+
+```text
 lib/
-├── core/                   # Core utilities and shared resources
+├── core/                         # Core utilities and shared resources
 │   ├── app_localization_provider/  # Localization setup and providers
 │   ├── bases/                      # Base classes (e.g., base widgets, base cubits)
 │   ├── colors/                     # App color definitions
@@ -44,13 +47,13 @@ lib/
 │   ├── theme/                      # App-wide theming
 │   └── widgets/                    # Reusable UI components
 │
-├── data/                   # Data layer (implementation)
+├── data/                         # Data layer (implementation)
 │   ├── db/                         # SQLite database helpers and DAOs
 │   ├── dummy/                      # Dummy/mock data for testing
 │   ├── models/                     # Data models
 │   └── repos_implementations/     # Implementations of repositories
 │
-├── domain/                # Domain layer (business logic)
+├── domain/                       # Domain layer (business logic)
 │   ├── repos_contracts/           # Abstract repository contracts
 │   │   ├── categories_repo/
 │   │   ├── estates_repo/
@@ -59,9 +62,9 @@ lib/
 │   │   └── subcategory_repo/
 │   └── base_repo.dart             # Base repository interface
 │
-├── ui/                    # Presentation layer
+├── ui/                           # Presentation layer
 │   ├── filter/                    # Filter screen UI and logic
 │   ├── home/                      # Home screen UI and logic
 │   └── plans/                     # Plans screen UI and logic
 │
-└── main.dart              # App entry point
+└── main.dart                     # App entry point
