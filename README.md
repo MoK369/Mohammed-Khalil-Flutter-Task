@@ -1,4 +1,4 @@
-# Flutter Task – [Your Name]
+# Flutter Task – Mohammed Khalil
 
 This project is a Flutter-based mobile application developed as part of a technical assessment. It demonstrates UI implementation based on provided designs, local data management using SQLite, and clean code architecture with state management.
 
