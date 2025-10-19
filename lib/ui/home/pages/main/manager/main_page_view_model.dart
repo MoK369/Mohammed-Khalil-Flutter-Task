@@ -55,6 +55,7 @@ class MainPageViewModel extends Cubit<MainPageState> {
             categories: repoResult.data,
           ),
         );
+        break;
       case Error<List<CategoryModel>>():
         emit(
           state.copyWith(
@@ -62,6 +63,7 @@ class MainPageViewModel extends Cubit<MainPageState> {
             categoriesError: repoResult.error,
           ),
         );
+        break;
     }
   }
 
@@ -90,6 +92,7 @@ class MainPageViewModel extends Cubit<MainPageState> {
               : _getProducts(repoResult.data[0].id!);
           currentSubcategoryId = repoResult.data[0].id!;
         }
+        break;
       case Error<List<SubcategoryModel>>():
         emit(
           state.copyWith(
@@ -97,6 +100,7 @@ class MainPageViewModel extends Cubit<MainPageState> {
             subcategoriesError: repoResult.error,
           ),
         );
+        break;
     }
   }
 
@@ -117,6 +121,7 @@ class MainPageViewModel extends Cubit<MainPageState> {
             productItems: repoResult.data,
           ),
         );
+        break;
       case Error<List<ProductModel>>():
         emit(
           state.copyWith(
@@ -124,6 +129,7 @@ class MainPageViewModel extends Cubit<MainPageState> {
             itemsError: repoResult.error,
           ),
         );
+        break;
     }
   }
 
@@ -143,6 +149,7 @@ class MainPageViewModel extends Cubit<MainPageState> {
             estateItems: repoResult.data,
           ),
         );
+        break;
       case Error<List<EstateModel>>():
         emit(
           state.copyWith(
@@ -150,6 +157,7 @@ class MainPageViewModel extends Cubit<MainPageState> {
             itemsError: repoResult.error,
           ),
         );
+        break;
     }
   }
 }

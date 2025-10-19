@@ -18,7 +18,7 @@ abstract class AppTheme {
 
     appBarTheme: AppBarTheme(
       titleTextStyle: GoogleFonts.tajawal(
-        fontSize: 18,
+        fontSize: 24,
         fontWeight: FontWeight.w600,
         color: AppColors.black,
       ),
@@ -37,11 +37,15 @@ abstract class AppTheme {
         fontSize: 12,
         fontWeight: FontWeight.w400,
       ),
+      labelLarge: GoogleFonts.tajawal(
+        fontSize: 16,
+        fontWeight: FontWeight.w700,
+      ),
     ),
     filledButtonTheme: FilledButtonThemeData(
       style: FilledButton.styleFrom(
-        textStyle:  GoogleFonts.tajawal(
-          fontSize: 15,
+        textStyle: GoogleFonts.tajawal(
+          fontSize: 16,
           color: AppColors.white,
           fontWeight: FontWeight.bold,
         ),
@@ -108,6 +112,21 @@ abstract class AppTheme {
     checkboxTheme: const CheckboxThemeData(
       materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
       side: BorderSide(width: 2.2),
+    ),
+    inputDecorationTheme: InputDecorationThemeData(
+      enabledBorder: OutlineInputBorder(
+        borderRadius: BorderRadius.circular(8),
+        borderSide: BorderSide(color: AppColors.black.withAlpha(25)),
+      ),
+      focusedBorder: OutlineInputBorder(
+        borderRadius: BorderRadius.circular(8),
+        borderSide: BorderSide(color: AppColors.blue),
+      ),
+        hintStyle:  GoogleFonts.tajawal(
+          fontSize: 14,
+          color: AppColors.black.withAlpha(125),
+          fontWeight: FontWeight.w600,
+        )
     ),
   );
 }

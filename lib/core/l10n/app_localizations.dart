@@ -100,6 +100,12 @@ abstract class AppLocalizations {
   /// **'عقارات'**
   String get estates;
 
+  /// No description provided for @villasForSale.
+  ///
+  /// In ar, this message translates to:
+  /// **'فلل للبيع'**
+  String get villasForSale;
+
   /// No description provided for @homePage.
   ///
   /// In ar, this message translates to:
@@ -255,6 +261,174 @@ abstract class AppLocalizations {
   /// In ar, this message translates to:
   /// **'التالى'**
   String get next;
+
+  /// No description provided for @filtering.
+  ///
+  /// In ar, this message translates to:
+  /// **'فلترة'**
+  String get filtering;
+
+  /// No description provided for @returnToDefault.
+  ///
+  /// In ar, this message translates to:
+  /// **'الرجوع للإفتراضي'**
+  String get returnToDefault;
+
+  /// No description provided for @category.
+  ///
+  /// In ar, this message translates to:
+  /// **'الفئة'**
+  String get category;
+
+  /// No description provided for @changing.
+  ///
+  /// In ar, this message translates to:
+  /// **'تغيير'**
+  String get changing;
+
+  /// No description provided for @location.
+  ///
+  /// In ar, this message translates to:
+  /// **'الموقع'**
+  String get location;
+
+  /// No description provided for @egypt.
+  ///
+  /// In ar, this message translates to:
+  /// **'مصر'**
+  String get egypt;
+
+  /// No description provided for @saudiArabia.
+  ///
+  /// In ar, this message translates to:
+  /// **'السعودية'**
+  String get saudiArabia;
+
+  /// No description provided for @emirates.
+  ///
+  /// In ar, this message translates to:
+  /// **'الإمارات'**
+  String get emirates;
+
+  /// No description provided for @monthlyPayments.
+  ///
+  /// In ar, this message translates to:
+  /// **'الأقساط الشهرية'**
+  String get monthlyPayments;
+
+  /// No description provided for @priceWord.
+  ///
+  /// In ar, this message translates to:
+  /// **'السعر'**
+  String get priceWord;
+
+  /// No description provided for @lowestPrice.
+  ///
+  /// In ar, this message translates to:
+  /// **'أقل سعر'**
+  String get lowestPrice;
+
+  /// No description provided for @highestPrice.
+  ///
+  /// In ar, this message translates to:
+  /// **'أقصى سعر'**
+  String get highestPrice;
+
+  /// No description provided for @roomsNumber.
+  ///
+  /// In ar, this message translates to:
+  /// **'عدد الغرف'**
+  String get roomsNumber;
+
+  /// No description provided for @fourRooms.
+  ///
+  /// In ar, this message translates to:
+  /// **'4 غرف'**
+  String get fourRooms;
+
+  /// No description provided for @fiveRoomsOrMore.
+  ///
+  /// In ar, this message translates to:
+  /// **'5 غرف+'**
+  String get fiveRoomsOrMore;
+
+  /// No description provided for @twoRooms.
+  ///
+  /// In ar, this message translates to:
+  /// **'غرفتين'**
+  String get twoRooms;
+
+  /// No description provided for @treeRooms.
+  ///
+  /// In ar, this message translates to:
+  /// **'3 غرف'**
+  String get treeRooms;
+
+  /// No description provided for @paymentType.
+  ///
+  /// In ar, this message translates to:
+  /// **'طريقة الدفع'**
+  String get paymentType;
+
+  /// No description provided for @any.
+  ///
+  /// In ar, this message translates to:
+  /// **'أي'**
+  String get any;
+
+  /// No description provided for @installment.
+  ///
+  /// In ar, this message translates to:
+  /// **'تقسيط'**
+  String get installment;
+
+  /// No description provided for @cash.
+  ///
+  /// In ar, this message translates to:
+  /// **'كاش'**
+  String get cash;
+
+  /// No description provided for @estateStatus.
+  ///
+  /// In ar, this message translates to:
+  /// **'حالة العقار'**
+  String get estateStatus;
+
+  /// No description provided for @ready.
+  ///
+  /// In ar, this message translates to:
+  /// **'جاهز'**
+  String get ready;
+
+  /// No description provided for @underConstruction.
+  ///
+  /// In ar, this message translates to:
+  /// **'قيد الإنشاء'**
+  String get underConstruction;
+
+  /// No description provided for @estateType.
+  ///
+  /// In ar, this message translates to:
+  /// **'النوع'**
+  String get estateType;
+
+  /// No description provided for @townHouse.
+  ///
+  /// In ar, this message translates to:
+  /// **'توين هاوس'**
+  String get townHouse;
+
+  /// No description provided for @separateVilla.
+  ///
+  /// In ar, this message translates to:
+  /// **'فيلا منفصلة'**
+  String get separateVilla;
+
+  /// No description provided for @showLotsOfResults.
+  ///
+  /// In ar, this message translates to:
+  /// **'شاهد 10,000+ نتائج'**
+  String get showLotsOfResults;
 }
 
 class _AppLocalizationsDelegate

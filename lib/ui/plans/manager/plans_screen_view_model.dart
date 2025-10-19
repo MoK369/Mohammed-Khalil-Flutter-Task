@@ -46,6 +46,7 @@ class PlansScreenViewModel extends Cubit<PlansScreenState> {
             plans: repoResult.data,
           ),
         );
+        break;
 
       case Error<List<PlanModel>>():
         emit(
@@ -54,6 +55,7 @@ class PlansScreenViewModel extends Cubit<PlansScreenState> {
             plansError: repoResult.error,
           ),
         );
+        break;
     }
   }
 

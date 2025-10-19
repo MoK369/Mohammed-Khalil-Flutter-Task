@@ -47,6 +47,7 @@ abstract class AssetsPaths {
   static const String specialIcon = "assets/icons/special_icon.webp";
   static const String timeIcon = "assets/icons/time_icon.webp";
   static const String helpOutlineIcon = "assets/icons/help_outline_icon.webp";
+  static const String estateProviderIcon = "assets/icons/estate_provider_icon.webp";
 
 
 
