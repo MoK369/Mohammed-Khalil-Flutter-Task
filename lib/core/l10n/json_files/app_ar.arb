@@ -1,0 +1,16 @@
+{
+  "estates": "عقارات",
+  "homePage": "الرئيسية",
+  "chatsPage": "محادثة",
+  "addAdPage": "أضف أعلان",
+  "myAdsPage": "أعلاناتى",
+  "accountPage": "حسابى",
+  "exploreOffers": "أستكشف العروض",
+  "all": "الكل",
+  "allOffers": "كل العروض",
+  "freeShipping": "شحن مجانى",
+  "offerRightNow": "لأى عرض تطلبه دلوقتى !",
+  "sold": "تم بيع {quantity}",
+  "price": "{price}جم",
+  "noItemsFound": "لم يتم العثور على عناصر"
+}

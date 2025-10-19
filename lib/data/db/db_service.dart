@@ -92,12 +92,12 @@ class DBService {
   }
 
   // SELECT
-  Future<T?> selectData<T>({
+  Future<List<T>> select<T>({
     required String tableName,
     required List<String> columns,
-    required String where,
-    required List<String> whereArgs,
-    required T Function(Map<String, dynamic>) fromMap,
+    String? where,
+    List<String>? whereArgs,
+    required List<T> Function(List<Map<String, dynamic>> records) fromMap,
   }) async {
     var db = await dbInstance;
     List<Map> maps = await db.query(
@@ -107,9 +107,9 @@ class DBService {
       whereArgs: whereArgs,
     );
     if (maps.isNotEmpty) {
-      return fromMap(maps.first as Map<String, dynamic>);
+      return fromMap(maps as List<Map<String,dynamic>>);
     }
-    return null;
+    return [];
   }
 
   // INSERT
@@ -137,7 +137,6 @@ class DBService {
         .toString()
         .replaceFirst('[', '(')
         .replaceFirst(']', ')');
-    print(columns);
     StringBuffer valuesStringBuffer = StringBuffer();
     for (int i = 0; i < values.length; i++) {
       var listStr = values[i].values.toList().toString();
@@ -145,7 +144,6 @@ class DBService {
         "${listStr.replaceRange(0, 1, "(").replaceRange(listStr.length - 1, null, ")")}${i == values.length - 1 ? '' : ','}",
       );
     }
-    print(valuesStringBuffer.toString());
     return db.rawInsert('''
   INSERT INTO $tableName $columns
   VALUES 

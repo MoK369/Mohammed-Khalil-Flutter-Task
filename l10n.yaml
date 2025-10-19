@@ -1,4 +1,4 @@
-arb-dir: lib/ui/core/l10n/json_files
+arb-dir: lib/core/l10n/json_files
 template-arb-file: app_ar.arb
-output-dir: lib/ui/core/l10n
+output-dir: lib/core/l10n
 output-localization-file: app_localizations.dart
