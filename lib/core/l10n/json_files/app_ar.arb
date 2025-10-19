@@ -12,5 +12,18 @@
   "offerRightNow": "لأى عرض تطلبه دلوقتى !",
   "sold": "تم بيع {quantity}",
   "price": "{price}جم",
-  "noItemsFound": "لم يتم العثور على عناصر"
+  "noItemsFound": "لم يتم العثور على عناصر",
+  "validity": "صلاحية",
+  "lifting": "رفع",
+  "keeping": "تثبيت",
+  "appearing": "ظهور",
+  "special": "مميز",
+  "chooseProperPlan": "أختر الباقات اللى تناسبك",
+  "chooseFromSpecialBottomPlans": "أختار من باقات التمييز بل أسفل اللى تناسب أحتياجاتك",
+  "doubleNumberOfView": "ضعف عدد\nالمشاهدات",
+  "planPrice": "ج.م",
+  "plansForYou": "باقات مخصصة لك",
+  "contactUsForProperPlan": "تواصل معنا لأختيار الباقة المناسبة لك",
+  "salesTeam": "فريق المبيعات",
+  "next": "التالى"
 }

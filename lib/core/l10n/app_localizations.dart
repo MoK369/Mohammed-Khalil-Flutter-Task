@@ -177,6 +177,84 @@ abstract class AppLocalizations {
   /// In ar, this message translates to:
   /// **'لم يتم العثور على عناصر'**
   String get noItemsFound;
+
+  /// No description provided for @validity.
+  ///
+  /// In ar, this message translates to:
+  /// **'صلاحية'**
+  String get validity;
+
+  /// No description provided for @lifting.
+  ///
+  /// In ar, this message translates to:
+  /// **'رفع'**
+  String get lifting;
+
+  /// No description provided for @keeping.
+  ///
+  /// In ar, this message translates to:
+  /// **'تثبيت'**
+  String get keeping;
+
+  /// No description provided for @appearing.
+  ///
+  /// In ar, this message translates to:
+  /// **'ظهور'**
+  String get appearing;
+
+  /// No description provided for @special.
+  ///
+  /// In ar, this message translates to:
+  /// **'مميز'**
+  String get special;
+
+  /// No description provided for @chooseProperPlan.
+  ///
+  /// In ar, this message translates to:
+  /// **'أختر الباقات اللى تناسبك'**
+  String get chooseProperPlan;
+
+  /// No description provided for @chooseFromSpecialBottomPlans.
+  ///
+  /// In ar, this message translates to:
+  /// **'أختار من باقات التمييز بل أسفل اللى تناسب أحتياجاتك'**
+  String get chooseFromSpecialBottomPlans;
+
+  /// No description provided for @doubleNumberOfView.
+  ///
+  /// In ar, this message translates to:
+  /// **'ضعف عدد\nالمشاهدات'**
+  String get doubleNumberOfView;
+
+  /// No description provided for @planPrice.
+  ///
+  /// In ar, this message translates to:
+  /// **'ج.م'**
+  String get planPrice;
+
+  /// No description provided for @plansForYou.
+  ///
+  /// In ar, this message translates to:
+  /// **'باقات مخصصة لك'**
+  String get plansForYou;
+
+  /// No description provided for @contactUsForProperPlan.
+  ///
+  /// In ar, this message translates to:
+  /// **'تواصل معنا لأختيار الباقة المناسبة لك'**
+  String get contactUsForProperPlan;
+
+  /// No description provided for @salesTeam.
+  ///
+  /// In ar, this message translates to:
+  /// **'فريق المبيعات'**
+  String get salesTeam;
+
+  /// No description provided for @next.
+  ///
+  /// In ar, this message translates to:
+  /// **'التالى'**
+  String get next;
 }
 
 class _AppLocalizationsDelegate

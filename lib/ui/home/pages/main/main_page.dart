@@ -57,332 +57,338 @@ class _MainPageState extends BaseStatefulWidgetState<MainPage> {
             ),
           ],
         ),
-        body: BlocBuilder<MainPageViewModel, MainPageState>(
-          builder: (context, state) {
-            switch (state.categoriesStatus) {
-              case StatusEnum.idle:
-              case StatusEnum.loading:
-                return const Center(child: CircularProgressIndicator());
-              case StatusEnum.success:
-                var categories = state.categories ?? [];
-                return categories.isEmpty
-                    ? Expanded(
-                        child: Center(
-                          child: Text(
-                            appLocalizations.noItemsFound,
-                            style: theme.textTheme.titleLarge,
-                          ),
+        body: Center(
+          child: BlocBuilder<MainPageViewModel, MainPageState>(
+            builder: (context, state) {
+              switch (state.categoriesStatus) {
+                case StatusEnum.idle:
+                case StatusEnum.loading:
+                  return const CircularProgressIndicator();
+                case StatusEnum.success:
+                  var categories = state.categories ?? [];
+                  return categories.isEmpty
+                      ? Center(
+                        child: Text(
+                          appLocalizations.noItemsFound,
+                          style: theme.textTheme.titleLarge,
                         ),
                       )
-                    : DefaultTabController(
-                        length: categories.isEmpty ? 0 : categories.length + 1,
-                        initialIndex: 0,
-                        child: Column(
-                          children: [
-                            TabBar(
-                              indicatorPadding: const EdgeInsets.only(
-                                bottom: 1,
-                              ),
-                              isScrollable: true,
-                              onTap: (value) {
-                                mainPageViewModel.doIntent(
-                                  GetSubcategoriesIntent(
-                                    categoryId: value - 1 > -1
-                                        ? (categories[value - 1].id ?? -1)
-                                        : -1,
-                                  ),
-                                );
-                              },
-                              tabs: List.generate(
-                                categories.isEmpty ? 0 : categories.length + 1,
-                                (index) {
-                                  return CustomTabChild(
-                                    title: index == 0
-                                        ? appLocalizations.allOffers
-                                        : categories[index - 1].name,
-                                    isSelected: index == 0,
+                      : DefaultTabController(
+                          length: categories.isEmpty ? 0 : categories.length + 1,
+                          initialIndex: 0,
+                          child: Column(
+                            children: [
+                              TabBar(
+                                indicatorPadding: const EdgeInsets.only(
+                                  bottom: 1,
+                                ),
+                                isScrollable: true,
+                                onTap: (value) {
+                                  mainPageViewModel.doIntent(
+                                    GetSubcategoriesIntent(
+                                      categoryId: value - 1 > -1
+                                          ? (categories[value - 1].id ?? -1)
+                                          : -1,
+                                    ),
                                   );
                                 },
+                                tabs: List.generate(
+                                  categories.isEmpty ? 0 : categories.length + 1,
+                                  (index) {
+                                    return CustomTabChild(
+                                      title: index == 0
+                                          ? appLocalizations.allOffers
+                                          : categories[index - 1].name,
+                                      isSelected: index == 0,
+                                    );
+                                  },
+                                ),
                               ),
-                            ),
-                            const SizedBox(height: 25),
-                            Expanded(
-                              child: LayoutBuilder(
-                                builder: (context, constraints) {
-                                  switch (state.subcategoriesStatus) {
-                                    case StatusEnum.idle:
-                                    case StatusEnum.loading:
-                                      return const Center(
-                                        child: CircularProgressIndicator(),
-                                      );
-                                    case StatusEnum.success:
-                                      var subcategories =
-                                          state.subcategories ?? [];
-                                      return subcategories.isEmpty
-                                          ? Expanded(
-                                              child: Center(
-                                                child: Text(
-                                                  appLocalizations.noItemsFound,
-                                                  style: theme
-                                                      .textTheme
-                                                      .titleLarge,
+                              const SizedBox(height: 25),
+                              Expanded(
+                                child: LayoutBuilder(
+                                  builder: (context, constraints) {
+                                    switch (state.subcategoriesStatus) {
+                                      case StatusEnum.idle:
+                                      case StatusEnum.loading:
+                                        return const Center(
+                                          child: CircularProgressIndicator(),
+                                        );
+                                      case StatusEnum.success:
+                                        var subcategories =
+                                            state.subcategories ?? [];
+                                        return subcategories.isEmpty
+                                            ? Expanded(
+                                                child: Center(
+                                                  child: Text(
+                                                    appLocalizations.noItemsFound,
+                                                    style: theme
+                                                        .textTheme
+                                                        .titleLarge,
+                                                  ),
                                                 ),
-                                              ),
-                                            )
-                                          : Column(
-                                              children: [
-                                                SizedBox(
-                                                  height: max(
-                                                    min(
-                                                      constraints.maxHeight / 5,
-                                                      constraints.maxHeight / 4,
+                                              )
+                                            : Column(
+                                                children: [
+                                                  SizedBox(
+                                                    height: max(
+                                                      min(
+                                                        constraints.maxHeight / 5,
+                                                        constraints.maxHeight / 4,
+                                                      ),
+                                                      constraints.maxHeight / 7,
                                                     ),
-                                                    constraints.maxHeight / 7,
-                                                  ),
-                                                  child: ListView.builder(
-                                                    padding:
-                                                        const EdgeInsets.symmetric(
-                                                          horizontal: 4,
-                                                        ),
-                                                    scrollDirection:
-                                                        Axis.horizontal,
-                                                    itemCount:
-                                                        subcategories.length,
-                                                    itemBuilder: (context, index) {
-                                                      return InkWell(
-                                                        onTap: () {
-                                                          int id =
+                                                    child: ListView.builder(
+                                                      padding:
+                                                          const EdgeInsets.symmetric(
+                                                            horizontal: 4,
+                                                          ),
+                                                      scrollDirection:
+                                                          Axis.horizontal,
+                                                      itemCount:
+                                                          subcategories.length,
+                                                      itemBuilder: (context, index) {
+                                                        return InkWell(
+                                                          onTap: () {
+                                                            int id =
+                                                                subcategories[index]
+                                                                    .id!;
+                                                            mainPageViewModel.doIntent(
                                                               subcategories[index]
-                                                                  .id!;
-                                                          mainPageViewModel.doIntent(
-                                                            subcategories[index]
-                                                                        .categoryId ==
-                                                                    5
-                                                                ? GetEstatesIntent(
-                                                                    categoryId:
-                                                                        id,
-                                                                  )
-                                                                : GetProductsIntent(
-                                                                    subCategory:
-                                                                        id,
-                                                                  ),
-                                                          );
-                                                        },
-                                                        child: CustomSubcategoryWidget(
-                                                          imagePath:
-                                                              subcategories[index]
-                                                                  .imageUrl,
-                                                          title:
-                                                              subcategories[index]
-                                                                  .name,
-                                                        ),
-                                                      );
-                                                    },
-                                                  ),
-                                                ),
-                                                const SizedBox(height: 15),
-                                                Expanded(
-                                                  child: Column(
-                                                    children: [
-                                                      Container(
-                                                        margin:
-                                                            const EdgeInsets.symmetric(
-                                                              horizontal: 16,
-                                                            ),
-                                                        padding:
-                                                            const EdgeInsets.all(
-                                                              8,
-                                                            ),
-                                                        decoration: BoxDecoration(
-                                                          color: AppColors.red
-                                                              .withAlpha(12),
-                                                          borderRadius:
-                                                              BorderRadiusGeometry.circular(
-                                                                5,
-                                                              ),
-                                                        ),
-                                                        child: Row(
-                                                          children: [
-                                                            Icon(
-                                                              Icons.check,
-                                                              color: AppColors
-                                                                  .green,
-                                                            ),
-                                                            const SizedBox(
-                                                              width: 4,
-                                                            ),
-                                                            Text(
-                                                              appLocalizations
-                                                                  .freeShipping,
-                                                              style: theme
-                                                                  .textTheme
-                                                                  .labelLarge!
-                                                                  .copyWith(
-                                                                    color: AppColors
-                                                                        .green,
-                                                                  ),
-                                                            ),
-                                                            const Spacer(),
-                                                            Text(
-                                                              appLocalizations
-                                                                  .offerRightNow,
-                                                              style: theme
-                                                                  .textTheme
-                                                                  .labelMedium,
-                                                            ),
-                                                          ],
-                                                        ),
-                                                      ),
-                                                      const SizedBox(
-                                                        height: 15,
-                                                      ),
-                                                      Expanded(
-                                                        child: LayoutBuilder(
-                                                          builder: (context, constraints) {
-                                                            switch (state
-                                                                .itemsStatus) {
-                                                              case StatusEnum
-                                                                  .idle:
-                                                              case StatusEnum
-                                                                  .loading:
-                                                                return const Center(
-                                                                  child:
-                                                                      CircularProgressIndicator(),
-                                                                );
-                                                              case StatusEnum
-                                                                  .success:
-                                                                if ((state.productItems ??
-                                                                        [])
-                                                                    .isNotEmpty) {
-                                                                  final items =
-                                                                      state
-                                                                          .productItems ??
-                                                                      [];
-                                                                  return GridView.builder(
-                                                                    gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                                                                      crossAxisCount:
-                                                                          2,
-                                                                      childAspectRatio:
-                                                                          1 /
-                                                                          1.9,
-                                                                      crossAxisSpacing:
-                                                                          12,
+                                                                          .categoryId ==
+                                                                      5
+                                                                  ? GetEstatesIntent(
+                                                                      categoryId:
+                                                                          id,
+                                                                    )
+                                                                  : GetProductsIntent(
+                                                                      subCategory:
+                                                                          id,
                                                                     ),
-                                                                    itemCount: items
-                                                                        .length,
-                                                                    itemBuilder:
-                                                                        (
-                                                                          context,
-                                                                          index,
-                                                                        ) {
-                                                                          return CustomProductCard(
-                                                                            imagePath:
-                                                                                items[index].imageUrl,
-                                                                            title:
-                                                                                items[index].name,
-                                                                            price: appLocalizations.price(
-                                                                              items[index].price,
-                                                                            ),
-                                                                            discount: appLocalizations.price(
-                                                                              items[index].discount,
-                                                                            ),
-                                                                            sold: appLocalizations.sold(
-                                                                              items[index].totalSold,
-                                                                            ),
-                                                                          );
-                                                                        },
-                                                                  );
-                                                                } else if ((state
-                                                                            .estateItems ??
-                                                                        [])
-                                                                    .isNotEmpty) {
-                                                                  final items =
-                                                                      state
-                                                                          .estateItems ??
-                                                                      [];
-                                                                  return GridView.builder(
-                                                                    gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                                                                      crossAxisCount:
-                                                                          2,
-                                                                      childAspectRatio:
-                                                                          1 /
-                                                                          1.9,
-                                                                      crossAxisSpacing:
-                                                                          12,
-                                                                      mainAxisSpacing:
-                                                                          0,
-                                                                    ),
-                                                                    itemCount: items
-                                                                        .length,
-                                                                    itemBuilder:
-                                                                        (
-                                                                          context,
-                                                                          index,
-                                                                        ) {
-                                                                          return CustomProductCard(
-                                                                            imagePath:
-                                                                                items[index].imageUrl,
-                                                                            title:
-                                                                                items[index].title,
-                                                                            price: appLocalizations.price(
-                                                                              items[index].price,
-                                                                            ),
-                                                                            sold: appLocalizations.sold(
-                                                                              100,
-                                                                            ),
-                                                                          );
-                                                                        },
-                                                                  );
-                                                                }
-                                                                return Center(
-                                                                  child: Text(
-                                                                    appLocalizations
-                                                                        .noItemsFound,
-                                                                    style: theme
-                                                                        .textTheme
-                                                                        .titleLarge,
-                                                                  ),
-                                                                );
-
-                                                              case StatusEnum
-                                                                  .error:
-                                                                return Text(
-                                                                  state
-                                                                      .itemsError
-                                                                      .toString(),
-                                                                  style: theme
-                                                                      .textTheme
-                                                                      .titleLarge,
-                                                                );
-                                                            }
+                                                            );
                                                           },
-                                                        ),
-                                                      ),
-                                                    ],
+                                                          child: CustomSubcategoryWidget(
+                                                            imagePath:
+                                                                subcategories[index]
+                                                                    .imageUrl,
+                                                            title:
+                                                                subcategories[index]
+                                                                    .name,
+                                                          ),
+                                                        );
+                                                      },
+                                                    ),
                                                   ),
-                                                ),
-                                              ],
-                                            );
+                                                  const SizedBox(height: 15),
+                                                  Expanded(
+                                                    child: Column(
+                                                      children: [
+                                                        Container(
+                                                          margin:
+                                                              const EdgeInsets.symmetric(
+                                                                horizontal: 16,
+                                                              ),
+                                                          padding:
+                                                              const EdgeInsets.all(
+                                                                8,
+                                                              ),
+                                                          decoration: BoxDecoration(
+                                                            color: AppColors.red
+                                                                .withAlpha(12),
+                                                            borderRadius:
+                                                                BorderRadiusGeometry.circular(
+                                                                  5,
+                                                                ),
+                                                          ),
+                                                          child: Row(
+                                                            children: [
+                                                              Icon(
+                                                                Icons.check,
+                                                                color: AppColors
+                                                                    .green,
+                                                              ),
+                                                              const SizedBox(
+                                                                width: 4,
+                                                              ),
+                                                              Text(
+                                                                appLocalizations
+                                                                    .freeShipping,
+                                                                style: theme
+                                                                    .textTheme
+                                                                    .labelLarge!
+                                                                    .copyWith(
+                                                                      color: AppColors
+                                                                          .green,
+                                                                    ),
+                                                              ),
+                                                              const Spacer(),
+                                                              Text(
+                                                                appLocalizations
+                                                                    .offerRightNow,
+                                                                style: theme
+                                                                    .textTheme
+                                                                    .labelMedium,
+                                                              ),
+                                                            ],
+                                                          ),
+                                                        ),
+                                                        const SizedBox(
+                                                          height: 15,
+                                                        ),
+                                                        Expanded(
+                                                          child: Padding(
+                                                            padding:
+                                                                const EdgeInsets.symmetric(
+                                                                  horizontal:
+                                                                      16.0,
+                                                                ),
+                                                            child: LayoutBuilder(
+                                                              builder:
+                                                                  (
+                                                                    context,
+                                                                    constraints,
+                                                                  ) {
+                                                                    switch (state
+                                                                        .itemsStatus) {
+                                                                      case StatusEnum
+                                                                          .idle:
+                                                                      case StatusEnum
+                                                                          .loading:
+                                                                        return const Center(
+                                                                          child:
+                                                                              CircularProgressIndicator(),
+                                                                        );
+                                                                      case StatusEnum
+                                                                          .success:
+                                                                        if ((state.productItems ??
+                                                                                [])
+                                                                            .isNotEmpty) {
+                                                                          final items =
+                                                                              state.productItems ??
+                                                                              [];
+                                                                          return GridView.builder(
+                                                                            gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                                                                              crossAxisCount:
+                                                                                  2,
+                                                                              childAspectRatio:
+                                                                                  1 /
+                                                                                  2.1,
+                                                                              crossAxisSpacing:
+                                                                                  12,
+                                                                              mainAxisSpacing:
+                                                                                  12,
+                                                                            ),
+                                                                            itemCount:
+                                                                                items.length,
+                                                                            itemBuilder:
+                                                                                (
+                                                                                  context,
+                                                                                  index,
+                                                                                ) {
+                                                                                  return CustomProductCard(
+                                                                                    imagePath: items[index].imageUrl,
+                                                                                    title: items[index].name,
+                                                                                    price: appLocalizations.price(
+                                                                                      items[index].price,
+                                                                                    ),
+                                                                                    discount: appLocalizations.price(
+                                                                                      items[index].discount,
+                                                                                    ),
+                                                                                    sold: appLocalizations.sold(
+                                                                                      items[index].totalSold,
+                                                                                    ),
+                                                                                  );
+                                                                                },
+                                                                          );
+                                                                        } else if ((state.estateItems ??
+                                                                                [])
+                                                                            .isNotEmpty) {
+                                                                          final items =
+                                                                              state.estateItems ??
+                                                                              [];
+                                                                          return GridView.builder(
+                                                                            gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                                                                              crossAxisCount:
+                                                                                  2,
+                                                                              childAspectRatio:
+                                                                                  1 /
+                                                                                  2.1,
+                                                                              crossAxisSpacing:
+                                                                                  12,
+                                                                              mainAxisSpacing:
+                                                                                  12,
+                                                                            ),
+                                                                            itemCount:
+                                                                                items.length,
+                                                                            itemBuilder:
+                                                                                (
+                                                                                  context,
+                                                                                  index,
+                                                                                ) {
+                                                                                  return CustomProductCard(
+                                                                                    imagePath: items[index].imageUrl,
+                                                                                    title: items[index].title,
+                                                                                    price: appLocalizations.price(
+                                                                                      items[index].price,
+                                                                                    ),
+                                                                                    sold: appLocalizations.sold(
+                                                                                      100,
+                                                                                    ),
+                                                                                  );
+                                                                                },
+                                                                          );
+                                                                        }
+                                                                        return Center(
+                                                                          child: Text(
+                                                                            appLocalizations
+                                                                                .noItemsFound,
+                                                                            style: theme
+                                                                                .textTheme
+                                                                                .titleLarge,
+                                                                          ),
+                                                                        );
 
-                                    case StatusEnum.error:
-                                      return Text(
-                                        state.subcategoriesError.toString(),
-                                        style: theme.textTheme.titleLarge,
-                                      );
-                                  }
-                                },
+                                                                      case StatusEnum
+                                                                          .error:
+                                                                        return Text(
+                                                                          state
+                                                                              .itemsError
+                                                                              .toString(),
+                                                                          style: theme
+                                                                              .textTheme
+                                                                              .titleLarge,
+                                                                        );
+                                                                    }
+                                                                  },
+                                                            ),
+                                                          ),
+                                                        ),
+                                                      ],
+                                                    ),
+                                                  ),
+                                                ],
+                                              );
+
+                                      case StatusEnum.error:
+                                        return Text(
+                                          state.subcategoriesError.toString(),
+                                          style: theme.textTheme.titleLarge,
+                                        );
+                                    }
+                                  },
+                                ),
                               ),
-                            ),
-                          ],
-                        ),
-                      );
-              case StatusEnum.error:
-                return Text(
-                  state.categoriesError.toString(),
-                  style: theme.textTheme.titleLarge,
-                );
-            }
-          },
+                            ],
+                          ),
+                        );
+                case StatusEnum.error:
+                  return Text(
+                    state.categoriesError.toString(),
+                    style: theme.textTheme.titleLarge,
+                  );
+              }
+            },
+          ),
         ),
       ),
     );

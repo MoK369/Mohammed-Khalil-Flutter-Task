@@ -53,4 +53,44 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get noItemsFound => 'لم يتم العثور على عناصر';
+
+  @override
+  String get validity => 'صلاحية';
+
+  @override
+  String get lifting => 'رفع';
+
+  @override
+  String get keeping => 'تثبيت';
+
+  @override
+  String get appearing => 'ظهور';
+
+  @override
+  String get special => 'مميز';
+
+  @override
+  String get chooseProperPlan => 'أختر الباقات اللى تناسبك';
+
+  @override
+  String get chooseFromSpecialBottomPlans =>
+      'أختار من باقات التمييز بل أسفل اللى تناسب أحتياجاتك';
+
+  @override
+  String get doubleNumberOfView => 'ضعف عدد\nالمشاهدات';
+
+  @override
+  String get planPrice => 'ج.م';
+
+  @override
+  String get plansForYou => 'باقات مخصصة لك';
+
+  @override
+  String get contactUsForProperPlan => 'تواصل معنا لأختيار الباقة المناسبة لك';
+
+  @override
+  String get salesTeam => 'فريق المبيعات';
+
+  @override
+  String get next => 'التالى';
 }

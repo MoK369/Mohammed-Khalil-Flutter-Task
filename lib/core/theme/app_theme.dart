@@ -16,6 +16,14 @@ abstract class AppTheme {
       onSurface: AppColors.black,
     ),
 
+    appBarTheme: AppBarTheme(
+      titleTextStyle: GoogleFonts.tajawal(
+        fontSize: 18,
+        fontWeight: FontWeight.w600,
+        color: AppColors.black,
+      ),
+    ),
+
     textTheme: TextTheme(
       titleLarge: GoogleFonts.tajawal(
         fontSize: 18,
@@ -27,15 +35,20 @@ abstract class AppTheme {
       ),
       titleSmall: GoogleFonts.tajawal(
         fontSize: 12,
-        fontWeight: FontWeight.w600,
+        fontWeight: FontWeight.w400,
       ),
     ),
     filledButtonTheme: FilledButtonThemeData(
       style: FilledButton.styleFrom(
+        textStyle:  GoogleFonts.tajawal(
+          fontSize: 15,
+          color: AppColors.white,
+          fontWeight: FontWeight.bold,
+        ),
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadiusGeometry.circular(32),
         ),
-        padding: const EdgeInsets.symmetric(vertical: 13, horizontal: 20),
+        padding: const EdgeInsets.symmetric(vertical: 14, horizontal: 20),
       ),
     ),
     elevatedButtonTheme: ElevatedButtonThemeData(
@@ -66,7 +79,7 @@ abstract class AppTheme {
     ),
     tabBarTheme: TabBarThemeData(
       tabAlignment: TabAlignment.start,
-      labelPadding: const EdgeInsets.symmetric(vertical: 0,horizontal: 8),
+      labelPadding: const EdgeInsets.symmetric(vertical: 0, horizontal: 8),
       indicator: BoxDecoration(
         color: AppColors.red.withAlpha(15),
         border: Border.all(color: AppColors.black.withAlpha(25), width: 1.3),
@@ -84,6 +97,17 @@ abstract class AppTheme {
       ),
       overlayColor: WidgetStateColor.transparent,
       dividerColor: Colors.transparent,
+    ),
+    cardTheme: CardThemeData(
+      elevation: 2,
+      shape: RoundedRectangleBorder(
+        side: BorderSide(width: 1.2, color: AppColors.black.withAlpha(12)),
+        borderRadius: BorderRadiusGeometry.circular(8),
+      ),
+    ),
+    checkboxTheme: const CheckboxThemeData(
+      materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
+      side: BorderSide(width: 2.2),
     ),
   );
 }
