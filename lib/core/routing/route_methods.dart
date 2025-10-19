@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:otex_flutter_task/core/routing/defined_routes.dart';
+import 'package:otex_flutter_task/ui/filter/filter_screen.dart';
 import 'package:otex_flutter_task/ui/plans/plans_screen.dart';
 
 abstract class RouteMethods {
@@ -10,6 +11,8 @@ abstract class RouteMethods {
       switch (name) {
         case DefinedRoutes.plansScreen:
           return MaterialPageRoute(builder: (context) => const PlansScreen());
+        case DefinedRoutes.filterScreen:
+          return MaterialPageRoute(builder: (context) => const FilterScreen());
         default:
           return _errorRoute();
       }

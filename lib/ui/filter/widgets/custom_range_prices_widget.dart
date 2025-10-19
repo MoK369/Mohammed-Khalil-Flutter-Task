@@ -4,10 +4,14 @@ import 'package:otex_flutter_task/core/bases/base_stateless_widget.dart';
 
 class CustomRangePricesWidget extends BaseStatelessWidget {
   final String title;
+  final TextEditingController? controller1;
+  final TextEditingController? controller2;
   final String? hintText1, hintText2;
   const CustomRangePricesWidget({
     super.key,
     required this.title,
+    this.controller1,
+    this.controller2,
     this.hintText1,
     this.hintText2,
   });
@@ -26,9 +30,19 @@ class CustomRangePricesWidget extends BaseStatelessWidget {
         const SizedBox(height: 12),
         Row(
           children: [
-            Expanded(child: CustomPriceTextFormField(hintText: hintText1)),
+            Expanded(
+              child: CustomPriceTextFormField(
+                controller: controller1,
+                hintText: hintText1,
+              ),
+            ),
             const SizedBox(width: 16),
-            Expanded(child: CustomPriceTextFormField(hintText: hintText2)),
+            Expanded(
+              child: CustomPriceTextFormField(
+                controller: controller2,
+                hintText: hintText2,
+              ),
+            ),
           ],
         ),
       ],
@@ -37,12 +51,14 @@ class CustomRangePricesWidget extends BaseStatelessWidget {
 }
 
 class CustomPriceTextFormField extends StatelessWidget {
+  final TextEditingController? controller;
   final String? hintText;
-  const CustomPriceTextFormField({super.key, this.hintText});
+  const CustomPriceTextFormField({super.key, this.hintText, this.controller});
 
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      controller: controller,
       onTapOutside: (event) {
         FocusManager.instance.primaryFocus?.unfocus();
       },

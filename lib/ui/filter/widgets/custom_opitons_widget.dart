@@ -4,10 +4,14 @@ import 'package:otex_flutter_task/core/colors/app_colors.dart';
 
 class CustomOptionsWidget extends StatefulWidget {
   final String title;
+  final String? startOption;
   final List<String> options;
+  final Function(String value)? onSelectionChange;
   const CustomOptionsWidget({
     super.key,
     required this.title,
+    this.onSelectionChange,
+    this.startOption,
     required this.options,
   });
 
@@ -22,7 +26,9 @@ class _CustomOptionsWidgetState
   @override
   void initState() {
     super.initState();
-    selectedOption = widget.options[0];
+    selectedOption = widget.startOption == null || widget.startOption!.isEmpty
+        ? widget.options[0]
+        : widget.startOption!;
   }
 
   @override
@@ -51,6 +57,7 @@ class _CustomOptionsWidgetState
                 setState(() {
                   selectedOption = option;
                 });
+                widget.onSelectionChange?.call(option);
               },
               selectedColor: AppColors.blue.withAlpha(15),
               backgroundColor: AppColors.white,

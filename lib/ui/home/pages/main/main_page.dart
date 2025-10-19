@@ -5,6 +5,7 @@ import 'package:otex_flutter_task/core/bases/base_stateful_widget_state.dart';
 import 'package:otex_flutter_task/core/colors/app_colors.dart';
 import 'package:otex_flutter_task/core/constants/enums.dart';
 import 'package:otex_flutter_task/core/di/di.dart';
+import 'package:otex_flutter_task/core/routing/defined_routes.dart';
 import 'package:otex_flutter_task/core/widgets/custom_product_cart.dart';
 import 'package:otex_flutter_task/ui/home/pages/main/manager/main_page_states.dart';
 import 'package:otex_flutter_task/ui/home/pages/main/manager/main_page_view_model.dart';
@@ -45,7 +46,9 @@ class _MainPageState extends BaseStatefulWidgetState<MainPage> {
               ),
             ),
             IconButton(
-              onPressed: () {},
+              onPressed: () {
+                Navigator.pushNamed(context, DefinedRoutes.filterScreen);
+              },
               icon: Directionality(
                 textDirection: TextDirection.ltr,
                 child: Icon(
@@ -68,13 +71,15 @@ class _MainPageState extends BaseStatefulWidgetState<MainPage> {
                   var categories = state.categories ?? [];
                   return categories.isEmpty
                       ? Center(
-                        child: Text(
-                          appLocalizations.noItemsFound,
-                          style: theme.textTheme.titleLarge,
-                        ),
-                      )
+                          child: Text(
+                            appLocalizations.noItemsFound,
+                            style: theme.textTheme.titleLarge,
+                          ),
+                        )
                       : DefaultTabController(
-                          length: categories.isEmpty ? 0 : categories.length + 1,
+                          length: categories.isEmpty
+                              ? 0
+                              : categories.length + 1,
                           initialIndex: 0,
                           child: Column(
                             children: [
@@ -93,7 +98,9 @@ class _MainPageState extends BaseStatefulWidgetState<MainPage> {
                                   );
                                 },
                                 tabs: List.generate(
-                                  categories.isEmpty ? 0 : categories.length + 1,
+                                  categories.isEmpty
+                                      ? 0
+                                      : categories.length + 1,
                                   (index) {
                                     return CustomTabChild(
                                       title: index == 0
@@ -121,7 +128,8 @@ class _MainPageState extends BaseStatefulWidgetState<MainPage> {
                                             ? Expanded(
                                                 child: Center(
                                                   child: Text(
-                                                    appLocalizations.noItemsFound,
+                                                    appLocalizations
+                                                        .noItemsFound,
                                                     style: theme
                                                         .textTheme
                                                         .titleLarge,
@@ -133,8 +141,10 @@ class _MainPageState extends BaseStatefulWidgetState<MainPage> {
                                                   SizedBox(
                                                     height: max(
                                                       min(
-                                                        constraints.maxHeight / 5,
-                                                        constraints.maxHeight / 4,
+                                                        constraints.maxHeight /
+                                                            5,
+                                                        constraints.maxHeight /
+                                                            4,
                                                       ),
                                                       constraints.maxHeight / 7,
                                                     ),
@@ -268,15 +278,12 @@ class _MainPageState extends BaseStatefulWidgetState<MainPage> {
                                                                               [];
                                                                           return GridView.builder(
                                                                             gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                                                                              crossAxisCount:
-                                                                                  2,
+                                                                              crossAxisCount: 2,
                                                                               childAspectRatio:
                                                                                   1 /
                                                                                   2.1,
-                                                                              crossAxisSpacing:
-                                                                                  12,
-                                                                              mainAxisSpacing:
-                                                                                  12,
+                                                                              crossAxisSpacing: 12,
+                                                                              mainAxisSpacing: 12,
                                                                             ),
                                                                             itemCount:
                                                                                 items.length,
@@ -308,15 +315,12 @@ class _MainPageState extends BaseStatefulWidgetState<MainPage> {
                                                                               [];
                                                                           return GridView.builder(
                                                                             gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                                                                              crossAxisCount:
-                                                                                  2,
+                                                                              crossAxisCount: 2,
                                                                               childAspectRatio:
                                                                                   1 /
                                                                                   2.1,
-                                                                              crossAxisSpacing:
-                                                                                  12,
-                                                                              mainAxisSpacing:
-                                                                                  12,
+                                                                              crossAxisSpacing: 12,
+                                                                              mainAxisSpacing: 12,
                                                                             ),
                                                                             itemCount:
                                                                                 items.length,
@@ -340,11 +344,9 @@ class _MainPageState extends BaseStatefulWidgetState<MainPage> {
                                                                         }
                                                                         return Center(
                                                                           child: Text(
-                                                                            appLocalizations
-                                                                                .noItemsFound,
-                                                                            style: theme
-                                                                                .textTheme
-                                                                                .titleLarge,
+                                                                            appLocalizations.noItemsFound,
+                                                                            style:
+                                                                                theme.textTheme.titleLarge,
                                                                           ),
                                                                         );
 

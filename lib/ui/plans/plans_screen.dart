@@ -31,9 +31,7 @@ class _PlansScreenState extends BaseStatefulWidgetState<PlansScreen> {
         appBar: AppBar(
           forceMaterialTransparency: true,
           titleSpacing: 0,
-          title: Text(
-            appLocalizations.chooseProperPlan,
-          ),
+          title: Text(appLocalizations.chooseProperPlan),
           leading: IconButton(
             onPressed: () {
               Navigator.pop(context);
@@ -59,102 +57,122 @@ class _PlansScreenState extends BaseStatefulWidgetState<PlansScreen> {
                   return const Center(child: CircularProgressIndicator());
                 case StatusEnum.success:
                   final plans = state.plans ?? [];
-                  return Column(
-                    children: [
-                      Expanded(
-                        child: ListView.builder(
-                          shrinkWrap: true,
-                          itemCount: plans.length + 1,
-                          padding: const EdgeInsets.symmetric(
-                            vertical: 16,
-                            horizontal: 8,
-                          ),
-                          itemBuilder: (context, index) {
-                            return index == plans.length
-                                ? Padding(
-                                    padding: const EdgeInsets.symmetric(
-                                      vertical: 8,
-                                    ),
-                                    child: Container(
-                                      padding: const EdgeInsets.all(8),
-                                      decoration: BoxDecoration(
-                                        color: AppColors.black.withAlpha(12),
-                                        borderRadius:
-                                            BorderRadiusGeometry.circular(8),
-                                        border: Border.all(
-                                          color: AppColors.black.withAlpha(20),
-                                        ),
-                                      ),
-                                      child: Column(
-                                        crossAxisAlignment:
-                                            CrossAxisAlignment.start,
-                                        children: [
-                                          Text(
-                                            appLocalizations.plansForYou,
-                                            style: theme.textTheme.titleMedium,
+                  return plans.isEmpty
+                      ? Text(
+                          appLocalizations.noItemsFound,
+                          style: theme.textTheme.titleLarge,
+                        )
+                      : Column(
+                          children: [
+                            Expanded(
+                              child: ListView.builder(
+                                shrinkWrap: true,
+                                itemCount: plans.length + 1,
+                                padding: const EdgeInsets.symmetric(
+                                  vertical: 16,
+                                  horizontal: 8,
+                                ),
+                                itemBuilder: (context, index) {
+                                  return index == plans.length
+                                      ? Padding(
+                                          padding: const EdgeInsets.symmetric(
+                                            vertical: 8,
                                           ),
-                                          Text(
-                                            appLocalizations
-                                                .contactUsForProperPlan,
-                                            style: theme.textTheme.titleSmall,
-                                          ),
-                                          InkWell(
-                                            onTap: () {},
-                                            child: Text(
-                                              appLocalizations.salesTeam,
-                                              style: theme.textTheme.titleLarge!
-                                                  .copyWith(
-                                                    color: AppColors.blue,
-                                                    fontWeight: FontWeight.bold,
+                                          child: Container(
+                                            padding: const EdgeInsets.all(8),
+                                            decoration: BoxDecoration(
+                                              color: AppColors.black.withAlpha(
+                                                12,
+                                              ),
+                                              borderRadius:
+                                                  BorderRadiusGeometry.circular(
+                                                    8,
                                                   ),
+                                              border: Border.all(
+                                                color: AppColors.black
+                                                    .withAlpha(20),
+                                              ),
+                                            ),
+                                            child: Column(
+                                              crossAxisAlignment:
+                                                  CrossAxisAlignment.start,
+                                              children: [
+                                                Text(
+                                                  appLocalizations.plansForYou,
+                                                  style: theme
+                                                      .textTheme
+                                                      .titleMedium,
+                                                ),
+                                                Text(
+                                                  appLocalizations
+                                                      .contactUsForProperPlan,
+                                                  style: theme
+                                                      .textTheme
+                                                      .titleSmall,
+                                                ),
+                                                InkWell(
+                                                  onTap: () {},
+                                                  child: Text(
+                                                    appLocalizations.salesTeam,
+                                                    style: theme
+                                                        .textTheme
+                                                        .titleLarge!
+                                                        .copyWith(
+                                                          color: AppColors.blue,
+                                                          fontWeight:
+                                                              FontWeight.bold,
+                                                        ),
+                                                  ),
+                                                ),
+                                              ],
                                             ),
                                           ),
-                                        ],
-                                      ),
-                                    ),
-                                  )
-                                : Padding(
-                                    padding: const EdgeInsets.only(
-                                      bottom: 24.0,
-                                    ),
-                                    child: CustomPlanCard(
-                                      features: plans[index].features,
-                                      planTitle: plans[index].title,
-                                      viewsNumber: plans[index].viewNumber,
-                                      ribbonTitle: plans[index].ribbonTitle,
-                                      planPrice: plans[index].price.toString(),
-                                    ),
-                                  );
-                          },
-                        ),
-                      ),
-                      Container(
-                        width: double.infinity,
-                        padding: const EdgeInsets.symmetric(
-                          horizontal: 16,
-                          vertical: 12,
-                        ),
-                        decoration: BoxDecoration(
-                          border: Border(
-                            top: BorderSide(
-                              color: AppColors.black.withAlpha(20),
-                              width: 2,
+                                        )
+                                      : Padding(
+                                          padding: const EdgeInsets.only(
+                                            bottom: 24.0,
+                                          ),
+                                          child: CustomPlanCard(
+                                            features: plans[index].features,
+                                            planTitle: plans[index].title,
+                                            viewsNumber:
+                                                plans[index].viewNumber,
+                                            ribbonTitle:
+                                                plans[index].ribbonTitle,
+                                            planPrice: plans[index].price
+                                                .toString(),
+                                          ),
+                                        );
+                                },
+                              ),
                             ),
-                          ),
-                        ),
-                        child: FilledButton(
-                          onPressed: () {},
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              Text(appLocalizations.next),
-                              const Icon(Icons.arrow_forward),
-                            ],
-                          ),
-                        ),
-                      ),
-                    ],
-                  );
+                            Container(
+                              width: double.infinity,
+                              padding: const EdgeInsets.symmetric(
+                                horizontal: 16,
+                                vertical: 12,
+                              ),
+                              decoration: BoxDecoration(
+                                border: Border(
+                                  top: BorderSide(
+                                    color: AppColors.black.withAlpha(20),
+                                    width: 2,
+                                  ),
+                                ),
+                              ),
+                              child: FilledButton(
+                                onPressed: () {},
+                                child: Row(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: [
+                                    Text(appLocalizations.next),
+                                    const Icon(Icons.arrow_forward),
+                                  ],
+                                ),
+                              ),
+                            ),
+                          ],
+                        );
                 case StatusEnum.error:
                   return Text(
                     state.plansError.toString(),

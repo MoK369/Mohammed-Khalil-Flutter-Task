@@ -51,9 +51,6 @@ extension GetItInjectableX on _i174.GetIt {
       () => appLocalizationProvider.provide(),
       preResolve: true,
     );
-    gh.factory<_i491.FilterScreenViewModel>(
-      () => _i491.FilterScreenViewModel(),
-    );
     gh.singleton<_i174.DBService>(() => _i174.DBService());
     gh.factory<_i901.DummyDataProvider>(
       () => _i901.DummyDataProvider(gh<_i174.DBService>()),
@@ -83,6 +80,9 @@ extension GetItInjectableX on _i174.GetIt {
         gh<_i315.ProductsRepo>(),
         gh<_i536.EstatesRepo>(),
       ),
+    );
+    gh.factory<_i491.FilterScreenViewModel>(
+      () => _i491.FilterScreenViewModel(gh<_i536.EstatesRepo>()),
     );
     return this;
   }

@@ -79,7 +79,8 @@ class _CustomProductCardState
                               text: TextSpan(
                                 children: [
                                   TextSpan(
-                                    text: "${widget.price}/",
+                                    text:
+                                        "${widget.price} ${widget.discount != null ? "/" : ""}",
                                     style: theme.textTheme.titleMedium!
                                         .copyWith(color: AppColors.red),
                                   ),
