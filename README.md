@@ -68,3 +68,7 @@ lib/
 │   └── plans/                     # Plans screen UI and logic
 │
 └── main.dart                     # App entry point
+```
+## Imagined Database Look (Class Diagram)
+<img width="568" height="746" alt="Otex Test Database Class diagram" src="https://github.com/user-attachments/assets/8900bdda-9790-4383-a6e6-0f76a3719f9e" />
+
