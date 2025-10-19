@@ -1,4 +1,5 @@
 abstract class DatabaseConstants {
+  static const String databaseName = 'otex_app.db';
   // table names
   static const String categoriesTable = "categories";
   static const List<String> categoriesTableColumns = ['id', 'name'];

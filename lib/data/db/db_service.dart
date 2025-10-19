@@ -1,4 +1,6 @@
+import 'dart:io';
 import 'package:injectable/injectable.dart';
+import 'package:otex_flutter_task/core/constants/database_constants.dart';
 import 'package:path/path.dart';
 import 'package:sqflite/sqflite.dart';
 
@@ -17,13 +19,19 @@ class DBService {
 
   Future<Database> initDB() async {
     String databasePath = await getDatabasesPath();
-    String fullPath = join(databasePath, "otex_app.db");
+    String fullPath = join(databasePath, DatabaseConstants.databaseName);
     return openDatabase(
       fullPath,
       version: 1,
       onCreate: _onCreate,
       onUpgrade: _onUpgrade,
     );
+  }
+
+  Future<bool> doesDatabaseExist() async {
+    final databasePath = await getDatabasesPath();
+    final fullPath = join(databasePath, DatabaseConstants.databaseName);
+    return File(fullPath).exists();
   }
 
   Future<void> _onUpgrade(Database db, int oldVersion, int newVersion) async {}
@@ -108,7 +116,7 @@ class DBService {
       whereArgs: whereArgs,
     );
     if (maps.isNotEmpty) {
-      return fromMap(maps as List<Map<String,dynamic>>);
+      return fromMap(maps as List<Map<String, dynamic>>);
     }
     return [];
   }
